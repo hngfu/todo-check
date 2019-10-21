@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import RxSwift
+import RxDataSources
+
+typealias TodoSectionModel = AnimatableSectionModel<Int, Todo>
 
 protocol TodoStorageType {
+    @discardableResult
+    func createTodo(content: String) -> Observable<Todo>
     
+    @discardableResult
+    func todoList() -> Observable<[TodoStorageType]>
     
+    @discardableResult
+    func delete(todo: Todo) -> Observable<Todo>
 }
