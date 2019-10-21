@@ -10,6 +10,7 @@
 		303C0A6632D50D2C9556CA47 /* Pods_Todo_S.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B50BC507FB7ADB1E6B3C39 /* Pods_Todo_S.framework */; };
 		7D06E0A9235D76E100190766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D06E0A8235D76E100190766 /* Assets.xcassets */; };
 		7D20CFF9235D92820028AD51 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFF8235D92820028AD51 /* TodoListViewController.swift */; };
+		7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */; };
 		7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */; };
 		7DF3F9AA235D6D3A00E37989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A8235D6D3A00E37989 /* Main.storyboard */; };
 		7DF3F9AF235D6D3B00E37989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 		35EE38CC6086454FE2BFCFF3 /* Pods-Todo-S.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-S.debug.xcconfig"; path = "Target Support Files/Pods-Todo-S/Pods-Todo-S.debug.xcconfig"; sourceTree = "<group>"; };
 		7D06E0A8235D76E100190766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D20CFF8235D92820028AD51 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
+		7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerTextField.swift; sourceTree = "<group>"; };
 		7DF3F99F235D6D3A00E37989 /* Todo-S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF3F9A9235D6D3A00E37989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 		7D06E0AA235D79EA00190766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D20CFFA235DAC8D0028AD51 /* CustomView */,
 				7DF3F9A8235D6D3A00E37989 /* Main.storyboard */,
 				7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */,
 				7D20CFF8235D92820028AD51 /* TodoListViewController.swift */,
@@ -69,6 +72,14 @@
 			children = (
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7D20CFFA235DAC8D0028AD51 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		7DF3F996235D6D3A00E37989 = {
@@ -235,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */,
 				7D20CFF9235D92820028AD51 /* TodoListViewController.swift in Sources */,
 				7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */,
 			);

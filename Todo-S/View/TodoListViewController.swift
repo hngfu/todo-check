@@ -14,14 +14,15 @@ import RxKeyboard
 class TodoListViewController: UIViewController {
     
     @IBOutlet weak var todoListTableView: UITableView!
+    @IBOutlet weak var inputTextField: RoundCornerTextField!
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        inputTextField.becomeFirstResponder()
         
-        todoListTableView.keyboardDismissMode = .onDrag
         bind()
     }
     
