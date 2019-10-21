@@ -24,5 +24,8 @@ class RoundCornerTextField: UITextField {
         self.layer.cornerRadius = self.layer.bounds.height / 2
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.lightGray.cgColor
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
     }
 }
