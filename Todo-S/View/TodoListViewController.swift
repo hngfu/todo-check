@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxKeyboard
 
 class TodoListViewController: UIViewController {
-
+    
+    @IBOutlet weak var todoListTableView: UITableView!
+    @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        todoListTableView.keyboardDismissMode = .onDrag
+        bind()
+    }
+    
+    func bind() {
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [weak self] height in
+                guard let `self` = self else { return }
+                let height = height - self.view.safeAreaInsets.bottom
+                UIView.animate(withDuration: 0) {
+                    self.inputContainerViewBottomConstraint.constant = max(height, 0)
+                    self.view.layoutIfNeeded()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
