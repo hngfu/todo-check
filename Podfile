@@ -10,4 +10,7 @@ target 'Todo-S' do
   pod 'RxCocoa'
   pod 'Action'
   pod 'RxKeyboard'
+  pod "RxRealm"
+  pod "RxGesture"
+  pod 'RxDataSources', '~> 4.0'
 end
