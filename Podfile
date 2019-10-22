@@ -13,4 +13,5 @@ target 'Todo-S' do
   pod "RxRealm"
   pod "RxGesture"
   pod 'RxDataSources', '~> 4.0'
+  pod 'RxOptional'
 end
