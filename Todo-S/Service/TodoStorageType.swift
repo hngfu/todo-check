@@ -17,7 +17,7 @@ protocol TodoStorageType {
     func createTodo(content: String) -> Observable<Todo>
     
     @discardableResult
-    func todoList() -> Observable<[TodoStorageType]>
+    func todoList() -> Observable<[TodoSectionModel]>
     
     @discardableResult
     func delete(todo: Todo) -> Observable<Todo>
