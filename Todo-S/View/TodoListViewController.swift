@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxKeyboard
+import RxOptional
 
 class TodoListViewController: UIViewController {
     
@@ -18,10 +19,12 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     
     private let disposeBag = DisposeBag()
+    private let viewModel = TodoListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.becomeFirstResponder()
+        todoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         bind()
     }
@@ -36,6 +39,16 @@ class TodoListViewController: UIViewController {
                     self.view.layoutIfNeeded()
                 }
             })
+            .disposed(by: disposeBag)
+        
+        viewModel.todoList
+            .bind(to: todoListTableView.rx.items(dataSource: viewModel.dataSource))
+            .disposed(by: disposeBag)
+        
+        inputTextField.rx.shouldReturn
+            .withLatestFrom(inputTextField.rx.text)
+            .filterNil()
+            .bind(to: viewModel.createAction.inputs)
             .disposed(by: disposeBag)
     }
 }
