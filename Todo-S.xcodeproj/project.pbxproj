@@ -13,6 +13,9 @@
 		7D13D193235DE6E400A07725 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D13D192235DE6E400A07725 /* Todo.swift */; };
 		7D13D195235DE9C100A07725 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D13D194235DE9C100A07725 /* RealmStorage.swift */; };
 		7D1824EF235EE7E0009EB7BB /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1824EE235EE7E0009EB7BB /* TodoList.swift */; };
+		7D1824F2235F1014009EB7BB /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1824F1235F1014009EB7BB /* TodoListViewModel.swift */; };
+		7D1824F8236025A7009EB7BB /* UITextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1824F7236025A7009EB7BB /* UITextField+Rx.swift */; };
+		7D1824FB23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1824FA23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift */; };
 		7D20CFF9235D92820028AD51 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFF8235D92820028AD51 /* TodoListViewController.swift */; };
 		7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */; };
 		7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */; };
@@ -28,6 +31,9 @@
 		7D13D192235DE6E400A07725 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		7D13D194235DE9C100A07725 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		7D1824EE235EE7E0009EB7BB /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		7D1824F1235F1014009EB7BB /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		7D1824F7236025A7009EB7BB /* UITextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Rx.swift"; sourceTree = "<group>"; };
+		7D1824FA23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUITextFieldDelegateProxy.swift; sourceTree = "<group>"; };
 		7D20CFF8235D92820028AD51 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerTextField.swift; sourceTree = "<group>"; };
 		7DF3F99F235D6D3A00E37989 /* Todo-S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,7 @@
 		7D06E0AB235D79F500190766 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7D1824F1235F1014009EB7BB /* TodoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -80,10 +87,27 @@
 		7D06E0AD235D7A1F00190766 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7D1824F923602A45009EB7BB /* DelegateProxy */,
 				7D13D190235DE23800A07725 /* TodoStorageType.swift */,
 				7D13D194235DE9C100A07725 /* RealmStorage.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7D1824F623602575009EB7BB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7D1824F7236025A7009EB7BB /* UITextField+Rx.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7D1824F923602A45009EB7BB /* DelegateProxy */ = {
+			isa = PBXGroup;
+			children = (
+				7D1824FA23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift */,
+			);
+			path = DelegateProxy;
 			sourceTree = "<group>";
 		};
 		7D20CFFA235DAC8D0028AD51 /* CustomView */ = {
@@ -116,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */,
+				7D1824F623602575009EB7BB /* Extension */,
 				7D06E0AD235D7A1F00190766 /* Service */,
 				7D06E0AA235D79EA00190766 /* View */,
 				7D06E0AC235D79FB00190766 /* Model */,
@@ -258,12 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1824F2235F1014009EB7BB /* TodoListViewModel.swift in Sources */,
 				7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */,
 				7D1824EF235EE7E0009EB7BB /* TodoList.swift in Sources */,
 				7D13D191235DE23800A07725 /* TodoStorageType.swift in Sources */,
 				7D20CFF9235D92820028AD51 /* TodoListViewController.swift in Sources */,
 				7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */,
+				7D1824FB23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift in Sources */,
 				7D13D193235DE6E400A07725 /* Todo.swift in Sources */,
+				7D1824F8236025A7009EB7BB /* UITextField+Rx.swift in Sources */,
 				7D13D195235DE9C100A07725 /* RealmStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

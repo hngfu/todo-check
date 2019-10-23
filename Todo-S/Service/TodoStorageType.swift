@@ -14,7 +14,7 @@ typealias TodoSectionModel = AnimatableSectionModel<Int, Todo>
 
 protocol TodoStorageType {
     @discardableResult
-    func createTodo(content: String) -> Observable<Todo>
+    func createTodo(content: String, completed: Bool) -> Observable<Todo>
     
     @discardableResult
     func todoList() -> Observable<[TodoSectionModel]>
