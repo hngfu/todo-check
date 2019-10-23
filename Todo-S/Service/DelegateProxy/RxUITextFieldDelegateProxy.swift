@@ -25,6 +25,7 @@ class RxUITextFieldDelegateProxy: DelegateProxy<UITextField, UITextFieldDelegate
     
     @objc
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.text = nil
         return false
     }
 }

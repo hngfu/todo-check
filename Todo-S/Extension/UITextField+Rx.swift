@@ -15,7 +15,8 @@ extension Reactive where Base: UITextField {
         return RxUITextFieldDelegateProxy.proxy(for: base)
     }
     
-    /// Do not resignFirstResponder
+    /// 1. Do not resignFirstResponder
+    /// 2. Clean textField.text
     var shouldReturn: ControlEvent<Void> {
         let source = delegate.rx.methodInvoked(#selector(UITextFieldDelegate.textFieldShouldReturn(_:))).map { _ in }
         return ControlEvent(events: source)
