@@ -61,8 +61,8 @@ class RealmStorage: TodoStorageType {
                 let notCompletedTodos = todos.filter { $0.isCompleted == false }
                 let completedTodos = todos.filter { $0.isCompleted == true }
                 return [
-                    TodoSectionModel(model: 0, items: notCompletedTodos),
-                    TodoSectionModel(model: 1, items: completedTodos)
+                    TodoSectionModel(model: "To do", items: notCompletedTodos),
+                    TodoSectionModel(model: "Completed", items: completedTodos)
                 ]
         }
     }

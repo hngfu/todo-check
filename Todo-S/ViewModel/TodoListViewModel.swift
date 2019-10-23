@@ -15,11 +15,17 @@ import Action
 class TodoListViewModel {
     private let storage: TodoStorageType! = RealmStorage()
     
-    let dataSource = RxTableViewSectionedAnimatedDataSource<TodoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = todo.content
-        return cell
-    })
+    let dataSource: RxTableViewSectionedAnimatedDataSource<TodoSectionModel> = {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<TodoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = todo.content
+            return cell
+        })
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].model
+        }
+        return dataSource
+    }()
     
     var todoList: Observable<[TodoSectionModel]> {
         return storage.todoList()
