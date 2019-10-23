@@ -33,7 +33,10 @@ class TodoListViewController: UIViewController {
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] height in
                 guard let `self` = self else { return }
-                let height = height - self.view.safeAreaInsets.bottom
+                var height = height
+                if #available(iOS 11, *) {
+                    height = height - self.view.safeAreaInsets.bottom
+                }
                 UIView.animate(withDuration: 0) {
                     self.inputContainerViewBottomConstraint.constant = max(height, 0)
                     self.view.layoutIfNeeded()
