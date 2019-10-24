@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Todo List View Controller-->
+        <!--To Do List View Controller-->
         <scene sceneID="VCE-dS-GUh">
             <objects>
-                <viewController id="8y6-vj-3Nb" customClass="TodoListViewController" customModule="Todo_S" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8y6-vj-3Nb" customClass="ToDoListViewController" customModule="Todo_S" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1pX-vH-1BI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,12 +41,13 @@
                                     <constraint firstItem="p73-gN-GVD" firstAttribute="leading" secondItem="75g-b9-gkf" secondAttribute="leading" constant="16" id="pOp-Li-ifJ"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-dN-ZsB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-dN-ZsB">
                                 <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OTf-sj-69N" firstAttribute="trailing" secondItem="Kh7-dN-ZsB" secondAttribute="trailing" id="1LF-86-6et"/>
                             <constraint firstItem="OTf-sj-69N" firstAttribute="trailing" secondItem="75g-b9-gkf" secondAttribute="trailing" id="4OM-Dm-gJP"/>
@@ -61,10 +62,12 @@
                     <connections>
                         <outlet property="inputContainerViewBottomConstraint" destination="EzP-RT-TPa" id="D7D-kY-oa7"/>
                         <outlet property="inputTextField" destination="p73-gN-GVD" id="HzT-UP-cE0"/>
+                        <outlet property="movableCellLongGestureRecognizer" destination="rQj-XX-aml" id="26q-XC-woY"/>
                         <outlet property="todoListTableView" destination="Kh7-dN-ZsB" id="eNy-pP-73t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwy-89-eEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="rQj-XX-aml"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="67.633928571428569"/>
         </scene>
