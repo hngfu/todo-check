@@ -28,7 +28,7 @@ class RealmStorage: ToDoStorageType {
                 realm.add(toDoList)
             }
         }
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+
         guard
             let store = realm.objects(ToDoList.self).first?.toDos
             else { return nil }

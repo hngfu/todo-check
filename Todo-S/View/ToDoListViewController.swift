@@ -15,7 +15,7 @@ import RxGesture
 
 class ToDoListViewController: UIViewController {
     
-    @IBOutlet weak var todoListTableView: UITableView!
+    @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var inputTextField: RoundCornerTextField!
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var movableCellLongGestureRecognizer: UILongPressGestureRecognizer!
@@ -29,8 +29,8 @@ class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.becomeFirstResponder()
-        todoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        todoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
+        toDoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
         bind()
     }
     
@@ -50,7 +50,7 @@ class ToDoListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.todoList
-            .bind(to: todoListTableView.rx.items(dataSource: viewModel.dataSource))
+            .bind(to: toDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         inputTextField.rx.shouldReturn
@@ -73,10 +73,10 @@ class ToDoListViewController: UIViewController {
                     let `self` = self
                     else { return }
 
-                let location = event.location(in: self.todoListTableView)
+                let location = event.location(in: self.toDoListTableView)
 
                 guard
-                    let indexPath = self.todoListTableView.indexPathForRow(at: location)
+                    let indexPath = self.toDoListTableView.indexPathForRow(at: location)
                     else { return }
 
                 switch event.state {
@@ -85,12 +85,12 @@ class ToDoListViewController: UIViewController {
                 case .began:
                     self.sourceIndexPath = indexPath
                     guard
-                        let cell = self.todoListTableView.cellForRow(at: indexPath)
+                        let cell = self.toDoListTableView.cellForRow(at: indexPath)
                         else { return }
                     let snapShot = self.hoveringSnapShotImageView(of: cell)
                     self.snapShotView = snapShot
                     snapShot.center = cell.center
-                    self.todoListTableView.addSubview(snapShot)
+                    self.toDoListTableView.addSubview(snapShot)
                     cell.isHidden = true
 
                 //MARK: changed
@@ -103,14 +103,14 @@ class ToDoListViewController: UIViewController {
                     snapShot.center.y = location.y
                     if indexPath != sourceIndexPath {
                         //TODO: Model change code
-                        self.todoListTableView.moveRow(at: sourceIndexPath, to: indexPath)
+                        self.toDoListTableView.moveRow(at: sourceIndexPath, to: indexPath)
                         self.sourceIndexPath = indexPath
                     }
 
                 //MARK: ended
                 case .ended:
                     guard
-                        let cell = self.todoListTableView.cellForRow(at: indexPath)
+                        let cell = self.toDoListTableView.cellForRow(at: indexPath)
                         else { return }
 
                     cell.isHidden = false

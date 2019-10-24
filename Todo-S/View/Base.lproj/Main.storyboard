@@ -63,7 +63,7 @@
                         <outlet property="inputContainerViewBottomConstraint" destination="EzP-RT-TPa" id="D7D-kY-oa7"/>
                         <outlet property="inputTextField" destination="p73-gN-GVD" id="HzT-UP-cE0"/>
                         <outlet property="movableCellLongGestureRecognizer" destination="rQj-XX-aml" id="26q-XC-woY"/>
-                        <outlet property="todoListTableView" destination="Kh7-dN-ZsB" id="eNy-pP-73t"/>
+                        <outlet property="toDoListTableView" destination="Kh7-dN-ZsB" id="eNy-pP-73t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwy-89-eEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
