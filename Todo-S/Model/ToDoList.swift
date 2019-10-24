@@ -9,6 +9,6 @@
 import Foundation
 import RealmSwift
 
-class TodoList: Object {
-    let todos = List<Todo>()
+class ToDoList: Object {
+    let toDos = List<ToDo>()
 }

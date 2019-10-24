@@ -10,15 +10,15 @@ import Foundation
 import RxSwift
 import RxDataSources
 
-typealias TodoSectionModel = AnimatableSectionModel<String, Todo>
+typealias ToDoSectionModel = AnimatableSectionModel<String, ToDo>
 
-protocol TodoStorageType {
+protocol ToDoStorageType {
     @discardableResult
-    func createTodo(content: String, completed: Bool) -> Observable<Todo>
+    func createToDo(content: String, completed: Bool) -> Observable<ToDo>
     
     @discardableResult
-    func todoList() -> Observable<[TodoSectionModel]>
+    func toDoList() -> Observable<[ToDoSectionModel]>
     
     @discardableResult
-    func delete(todo: Todo) -> Observable<Todo>
+    func delete(toDo: ToDo) -> Observable<ToDo>
 }

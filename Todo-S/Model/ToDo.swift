@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import RxDataSources
 
-class Todo: Object, IdentifiableType {
+class ToDo: Object, IdentifiableType {
     @objc dynamic var content: String = ""
     @objc dynamic var isCompleted = false
     @objc dynamic var identity: String = "\(Date().timeIntervalSinceReferenceDate)"

@@ -12,11 +12,11 @@ import RxSwift
 import RxCocoa
 import Action
 
-class TodoListViewModel {
-    private let storage: TodoStorageType! = RealmStorage()
+class ToDoListViewModel {
+    private let storage: ToDoStorageType! = RealmStorage()
     
-    let dataSource: RxTableViewSectionedAnimatedDataSource<TodoSectionModel> = {
-        let dataSource = RxTableViewSectionedAnimatedDataSource<TodoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
+    let dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = todo.content
             return cell
@@ -27,13 +27,13 @@ class TodoListViewModel {
         return dataSource
     }()
     
-    var todoList: Observable<[TodoSectionModel]> {
-        return storage.todoList()
+    var todoList: Observable<[ToDoSectionModel]> {
+        return storage.toDoList()
     }
     
     lazy var createAction: Action<String, Void> = {
         return Action<String, Void> { content in
-            self.storage.createTodo(content: content, completed: false)
+            self.storage.createToDo(content: content, completed: false)
             return Observable.empty()
         }
     }()

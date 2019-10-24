@@ -12,9 +12,9 @@ import RxSwift
 import RxCocoa
 import RxRealm
 
-class RealmStorage: TodoStorageType {
+class RealmStorage: ToDoStorageType {
     private let realm: Realm
-    private let store: List<Todo>
+    private let store: List<ToDo>
     
     init?() {
         guard
@@ -22,58 +22,58 @@ class RealmStorage: TodoStorageType {
             else { return nil }
         
         self.realm = realm
-        if realm.objects(TodoList.self).count == 0 {
+        if realm.objects(ToDoList.self).count == 0 {
             try? realm.write {
-                let todoList = TodoList()
-                realm.add(todoList)
+                let toDoList = ToDoList()
+                realm.add(toDoList)
             }
         }
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         guard
-            let store = realm.objects(TodoList.self).first?.todos
+            let store = realm.objects(ToDoList.self).first?.toDos
             else { return nil }
         
         self.store = store
     }
     
     @discardableResult
-    func createTodo(content: String, completed: Bool = false) -> Observable<Todo> {
-        let todo = Todo()
-        todo.content = content
-        todo.isCompleted = completed
+    func createToDo(content: String, completed: Bool = false) -> Observable<ToDo> {
+        let toDo = ToDo()
+        toDo.content = content
+        toDo.isCompleted = completed
         
         try? realm.write {
             if completed {
-                store.insert(todo, at: store.count)
+                store.insert(toDo, at: store.count)
             } else {
                 let countNotCompletedTodo = store.filter("isCompleted = false").count
-                store.insert(todo, at: countNotCompletedTodo)
+                store.insert(toDo, at: countNotCompletedTodo)
             }
         }
         
-        return Observable.just(todo)
+        return Observable.just(toDo)
     }
     
     @discardableResult
-    func todoList() -> Observable<[TodoSectionModel]> {
+    func toDoList() -> Observable<[ToDoSectionModel]> {
         Observable.array(from: store)
-            .map { (todos) -> [TodoSectionModel] in
-                let notCompletedTodos = todos.filter { $0.isCompleted == false }
-                let completedTodos = todos.filter { $0.isCompleted == true }
+            .map { (toDos) -> [ToDoSectionModel] in
+                let notCompletedToDos = toDos.filter { $0.isCompleted == false }
+                let completedToDos = toDos.filter { $0.isCompleted == true }
                 return [
-                    TodoSectionModel(model: "To do", items: notCompletedTodos),
-                    TodoSectionModel(model: "Completed", items: completedTodos)
+                    ToDoSectionModel(model: "To Do", items: notCompletedToDos),
+                    ToDoSectionModel(model: "Completed", items: completedToDos)
                 ]
         }
     }
     
     @discardableResult
-    func delete(todo: Todo) -> Observable<Todo> {
+    func delete(toDo: ToDo) -> Observable<ToDo> {
         
         try? realm.write {
-            realm.delete(todo)
+            realm.delete(toDo)
         }
         
-        return Observable.just(todo)
+        return Observable.just(toDo)
     }
 }
