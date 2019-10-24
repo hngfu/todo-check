@@ -14,7 +14,8 @@ import RxRealm
 
 class RealmStorage: ToDoStorageType {
     private let realm: Realm
-    private let store: List<ToDo>
+    private let toDoStore: List<ToDo>
+    private let completedToDoStore: List<ToDo>
     
     init?() {
         guard
@@ -30,24 +31,23 @@ class RealmStorage: ToDoStorageType {
         }
 
         guard
-            let store = realm.objects(ToDoList.self).first?.toDos
+            let toDoList = realm.objects(ToDoList.self).first
             else { return nil }
         
-        self.store = store
+        self.toDoStore = toDoList.toDos
+        self.completedToDoStore = toDoList.completedToDos
     }
     
     @discardableResult
     func createToDo(content: String, completed: Bool = false) -> Observable<ToDo> {
         let toDo = ToDo()
         toDo.content = content
-        toDo.isCompleted = completed
         
         try? realm.write {
             if completed {
-                store.insert(toDo, at: store.count)
+                completedToDoStore.insert(toDo, at: completedToDoStore.count)
             } else {
-                let countNotCompletedTodo = store.filter("isCompleted = false").count
-                store.insert(toDo, at: countNotCompletedTodo)
+                toDoStore.insert(toDo, at: toDoStore.count)
             }
         }
         
@@ -56,12 +56,13 @@ class RealmStorage: ToDoStorageType {
     
     @discardableResult
     func toDoList() -> Observable<[ToDoSectionModel]> {
-        Observable.array(from: store)
-            .map { (toDos) -> [ToDoSectionModel] in
-                let notCompletedToDos = toDos.filter { $0.isCompleted == false }
-                let completedToDos = toDos.filter { $0.isCompleted == true }
+        let toDoObservable = Observable.array(from: toDoStore)
+        let completedToDoObservable = Observable.array(from: completedToDoStore)
+        return Observable.combineLatest(toDoObservable, completedToDoObservable)
+            .map { allToDo -> [ToDoSectionModel] in
+                let (toDos, completedToDos) = allToDo
                 return [
-                    ToDoSectionModel(model: "To Do", items: notCompletedToDos),
+                    ToDoSectionModel(model: "To Do", items: toDos),
                     ToDoSectionModel(model: "Completed", items: completedToDos)
                 ]
         }

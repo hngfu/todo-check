@@ -11,4 +11,5 @@ import RealmSwift
 
 class ToDoList: Object {
     let toDos = List<ToDo>()
+    let completedToDos = List<ToDo>()
 }
