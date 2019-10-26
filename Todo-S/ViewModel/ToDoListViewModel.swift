@@ -22,7 +22,7 @@ class ToDoListViewModel {
             guard
                 let toDoCell = cell as? ToDoTableViewCell
                 else { return cell }
-            toDoCell.contentLabel.text = todo.content
+            toDoCell.setSubViews(with: todo)
             return cell
         })
         dataSource.titleForHeaderInSection = { dataSource, index in
