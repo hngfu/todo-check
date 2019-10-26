@@ -16,7 +16,7 @@ class ToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var contentLabel: UILabel!
     
-    func setSubViews(with toDo: ToDo) {
+    func set(with toDo: ToDo) {
         self.contentLabel.text = toDo.content
     }
 }
