@@ -29,7 +29,8 @@ class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.becomeFirstResponder()
-        toDoListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
+                                   forCellReuseIdentifier: ToDoTableViewCell.identifier)
         toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
         bind()
     }

@@ -17,8 +17,12 @@ class ToDoListViewModel {
     
     let dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
         let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = todo.content
+            let cell = tableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier,
+                                                     for: indexPath)
+            guard
+                let toDoCell = cell as? ToDoTableViewCell
+                else { return cell }
+            toDoCell.contentLabel.text = todo.content
             return cell
         })
         dataSource.titleForHeaderInSection = { dataSource, index in
