@@ -27,7 +27,7 @@ class ToDoListViewModel: ToDoViewModel {
     }()
     
     var todoList: Observable<[ToDoSectionModel]> {
-        return storage.toDoList()
+        return storage.toDoList(completed: false)
     }
     
     lazy var createAction: Action<String, Void> = {

@@ -55,13 +55,16 @@ class RealmStorage: ToDoStorageType {
     }
     
     @discardableResult
-    func toDoList() -> Observable<[ToDoSectionModel]> {
-        let toDoObservable = Observable.array(from: toDoStore)
-        let completedToDoObservable = Observable.array(from: completedToDoStore)
-        return Observable.combineLatest(toDoObservable, completedToDoObservable)
-            .map { allToDo -> [ToDoSectionModel] in
-                let (toDos, completedToDos) = allToDo
-                return [ToDoSectionModel(model: 0, items: toDos)]
+    func toDoList(completed: Bool) -> Observable<[ToDoSectionModel]> {
+        let listObservable: Observable<[ToDo]>
+        if completed {
+            listObservable = Observable.array(from: completedToDoStore)
+        } else {
+            listObservable = Observable.array(from: toDoStore)
+        }
+        return listObservable
+            .map { toDoList -> [ToDoSectionModel] in
+                return [ToDoSectionModel(model: 0, items: toDoList)]
         }
     }
     
