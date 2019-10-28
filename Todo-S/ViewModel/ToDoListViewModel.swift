@@ -12,9 +12,7 @@ import RxSwift
 import RxCocoa
 import Action
 
-class ToDoListViewModel {
-    private let storage: ToDoStorageType! = RealmStorage()
-    
+class ToDoListViewModel: ToDoViewModel {
     let dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
         let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
             let cell = tableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier,
@@ -25,9 +23,6 @@ class ToDoListViewModel {
             toDoCell.set(with: todo)
             return cell
         })
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].model
-        }
         return dataSource
     }()
     
