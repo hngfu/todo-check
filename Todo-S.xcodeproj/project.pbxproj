@@ -19,6 +19,17 @@
 		7D1824FE23604F28009EB7BB /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1824FD23604F28009EB7BB /* UIView+Ex.swift */; };
 		7D1825022361A3AC009EB7BB /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825002361A3AC009EB7BB /* ToDoTableViewCell.swift */; };
 		7D1825032361A3AC009EB7BB /* ToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1825012361A3AC009EB7BB /* ToDoTableViewCell.xib */; };
+		7D1825062366C5AA009EB7BB /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825052366C5AA009EB7BB /* CoordinatorType.swift */; };
+		7D1825082366C622009EB7BB /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825072366C622009EB7BB /* TransitionStyle.swift */; };
+		7D18250A2366C67B009EB7BB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825092366C67B009EB7BB /* Scene.swift */; };
+		7D18250C2366C6C0009EB7BB /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18250B2366C6C0009EB7BB /* SceneCoordinator.swift */; };
+		7D1825102366C76B009EB7BB /* CompletedToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18250F2366C76B009EB7BB /* CompletedToDoListViewModel.swift */; };
+		7D1825122366CA93009EB7BB /* ViewModelBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825112366CA93009EB7BB /* ViewModelBindableType.swift */; };
+		7D1825142366CBEA009EB7BB /* ToDoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825132366CBEA009EB7BB /* ToDoViewModel.swift */; };
+		7D1825162366D0EB009EB7BB /* CompletedToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825152366D0EB009EB7BB /* CompletedToDoViewController.swift */; };
+		7D1825182366D3B8009EB7BB /* UIViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825172366D3B8009EB7BB /* UIViewController+Ex.swift */; };
+		7D18251A2366D4EA009EB7BB /* SceneError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1825192366D4EA009EB7BB /* SceneError.swift */; };
+		7D18251D2366D534009EB7BB /* TransitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18251C2366D534009EB7BB /* TransitionError.swift */; };
 		7D20CFF9235D92820028AD51 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFF8235D92820028AD51 /* ToDoListViewController.swift */; };
 		7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */; };
 		7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */; };
@@ -40,6 +51,17 @@
 		7D1824FD23604F28009EB7BB /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		7D1825002361A3AC009EB7BB /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		7D1825012361A3AC009EB7BB /* ToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoTableViewCell.xib; sourceTree = "<group>"; };
+		7D1825052366C5AA009EB7BB /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
+		7D1825072366C622009EB7BB /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
+		7D1825092366C67B009EB7BB /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		7D18250B2366C6C0009EB7BB /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		7D18250F2366C76B009EB7BB /* CompletedToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoListViewModel.swift; sourceTree = "<group>"; };
+		7D1825112366CA93009EB7BB /* ViewModelBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindableType.swift; sourceTree = "<group>"; };
+		7D1825132366CBEA009EB7BB /* ToDoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewModel.swift; sourceTree = "<group>"; };
+		7D1825152366D0EB009EB7BB /* CompletedToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoViewController.swift; sourceTree = "<group>"; };
+		7D1825172366D3B8009EB7BB /* UIViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ex.swift"; sourceTree = "<group>"; };
+		7D1825192366D4EA009EB7BB /* SceneError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneError.swift; sourceTree = "<group>"; };
+		7D18251C2366D534009EB7BB /* TransitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionError.swift; sourceTree = "<group>"; };
 		7D20CFF8235D92820028AD51 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerTextField.swift; sourceTree = "<group>"; };
 		7DF3F99F235D6D3A00E37989 /* Todo-S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +91,8 @@
 				7DF3F9A8235D6D3A00E37989 /* Main.storyboard */,
 				7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */,
 				7D20CFF8235D92820028AD51 /* ToDoListViewController.swift */,
+				7D1825152366D0EB009EB7BB /* CompletedToDoViewController.swift */,
+				7D1825112366CA93009EB7BB /* ViewModelBindableType.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -77,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				7D1824F1235F1014009EB7BB /* ToDoListViewModel.swift */,
+				7D18250F2366C76B009EB7BB /* CompletedToDoListViewModel.swift */,
+				7D1825132366CBEA009EB7BB /* ToDoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -104,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1824F7236025A7009EB7BB /* UITextField+Rx.swift */,
+				7D1825172366D3B8009EB7BB /* UIViewController+Ex.swift */,
 				7D1824FD23604F28009EB7BB /* UIView+Ex.swift */,
 			);
 			path = Extension;
@@ -115,6 +142,26 @@
 				7D1824FA23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift */,
 			);
 			path = DelegateProxy;
+			sourceTree = "<group>";
+		};
+		7D1825042366C56C009EB7BB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7D1825072366C622009EB7BB /* TransitionStyle.swift */,
+				7D1825092366C67B009EB7BB /* Scene.swift */,
+				7D1825052366C5AA009EB7BB /* CoordinatorType.swift */,
+				7D18250B2366C6C0009EB7BB /* SceneCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7D18251B2366D524009EB7BB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7D1825192366D4EA009EB7BB /* SceneError.swift */,
+				7D18251C2366D534009EB7BB /* TransitionError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		7D20CFFA235DAC8D0028AD51 /* CustomView */ = {
@@ -149,7 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */,
+				7D18251B2366D524009EB7BB /* Error */,
 				7D1824F623602575009EB7BB /* Extension */,
+				7D1825042366C56C009EB7BB /* Coordinator */,
 				7D06E0AD235D7A1F00190766 /* Service */,
 				7D06E0AA235D79EA00190766 /* View */,
 				7D06E0AC235D79FB00190766 /* Model */,
@@ -295,10 +344,21 @@
 			files = (
 				7D1824F2235F1014009EB7BB /* ToDoListViewModel.swift in Sources */,
 				7D1824FE23604F28009EB7BB /* UIView+Ex.swift in Sources */,
+				7D18250A2366C67B009EB7BB /* Scene.swift in Sources */,
+				7D1825122366CA93009EB7BB /* ViewModelBindableType.swift in Sources */,
+				7D18250C2366C6C0009EB7BB /* SceneCoordinator.swift in Sources */,
 				7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */,
 				7D1825022361A3AC009EB7BB /* ToDoTableViewCell.swift in Sources */,
+				7D1825102366C76B009EB7BB /* CompletedToDoListViewModel.swift in Sources */,
+				7D1825082366C622009EB7BB /* TransitionStyle.swift in Sources */,
+				7D18251A2366D4EA009EB7BB /* SceneError.swift in Sources */,
+				7D18251D2366D534009EB7BB /* TransitionError.swift in Sources */,
 				7D1824EF235EE7E0009EB7BB /* ToDoList.swift in Sources */,
+				7D1825182366D3B8009EB7BB /* UIViewController+Ex.swift in Sources */,
+				7D1825162366D0EB009EB7BB /* CompletedToDoViewController.swift in Sources */,
 				7D13D191235DE23800A07725 /* ToDoStorageType.swift in Sources */,
+				7D1825142366CBEA009EB7BB /* ToDoViewModel.swift in Sources */,
+				7D1825062366C5AA009EB7BB /* CoordinatorType.swift in Sources */,
 				7D20CFF9235D92820028AD51 /* ToDoListViewController.swift in Sources */,
 				7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */,
 				7D1824FB23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift in Sources */,
