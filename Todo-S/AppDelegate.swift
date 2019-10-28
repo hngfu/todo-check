@@ -14,7 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let storage = RealmStorage()
+        let coordinator = SceneCoordinator(window: window!)
+        let viewModel = ToDoListViewModel(title: "To Do",
+                                          coordinator: coordinator,
+                                          storage: storage!)
+        let scene = Scene.toDoList(viewModel)
+        coordinator.transition(to: scene, using: .root, animated: false)
         return true
     }
 }
