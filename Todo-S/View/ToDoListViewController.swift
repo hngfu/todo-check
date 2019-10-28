@@ -13,7 +13,9 @@ import RxKeyboard
 import RxOptional
 import RxGesture
 
-class ToDoListViewController: UIViewController {
+class ToDoListViewController: UIViewController, ViewModelBindableType {
+    
+    static let identifierNavigation = "ToDoListNavigation"
     
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var inputTextField: RoundCornerTextField!
@@ -21,7 +23,7 @@ class ToDoListViewController: UIViewController {
     @IBOutlet weak var movableCellLongGestureRecognizer: UILongPressGestureRecognizer!
     
     private let disposeBag = DisposeBag()
-    private let viewModel = ToDoListViewModel()
+    var viewModel: ToDoListViewModel!
     
     private var sourceIndexPath: IndexPath?
     private var snapShotView: UIView?
@@ -32,10 +34,13 @@ class ToDoListViewController: UIViewController {
         toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
                                    forCellReuseIdentifier: ToDoTableViewCell.identifier)
         toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
-        bind()
     }
     
-    func bind() {
+    func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] height in
                 guard let `self` = self else { return }
