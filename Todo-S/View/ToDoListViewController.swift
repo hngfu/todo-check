@@ -30,7 +30,6 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputTextField.becomeFirstResponder()
         toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
                                    forCellReuseIdentifier: ToDoTableViewCell.identifier)
         toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
@@ -39,6 +38,10 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     func bindViewModel() {
         viewModel.title
             .drive(navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.todoList
+            .bind(to: toDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         RxKeyboard.instance.visibleHeight
@@ -51,12 +54,11 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                 UIView.animate(withDuration: 0) {
                     self.inputContainerViewBottomConstraint.constant = max(height, 0)
                     self.view.layoutIfNeeded()
+                    let countRowZeroSection = self.toDoListTableView.numberOfRows(inSection: 0)
+                    let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
+                    self.toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
                 }
             })
-            .disposed(by: disposeBag)
-        
-        viewModel.todoList
-            .bind(to: toDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         inputTextField.rx.shouldReturn
@@ -122,6 +124,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                     break
                 }
         }.disposed(by: disposeBag)
+        
+        toDoListTableView.setContentOffset(.zero, animated: false)
     }
     
     func hoveringSnapShotImageView(of view: UIView) -> UIImageView {
