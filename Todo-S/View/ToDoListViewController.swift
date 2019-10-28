@@ -54,9 +54,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                 UIView.animate(withDuration: 0) {
                     self.inputContainerViewBottomConstraint.constant = max(height, 0)
                     self.view.layoutIfNeeded()
-                    let countRowZeroSection = self.toDoListTableView.numberOfRows(inSection: 0)
-                    let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
-                    self.toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
+                    self.scrollToLastCell()
                 }
             })
             .disposed(by: disposeBag)
@@ -134,5 +132,11 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         snapShotImageView.transform = .init(scaleX: 1.05, y: 1.05)
         snapShotImageView.alpha = 0.7
         return snapShotImageView
+    }
+    
+    func scrollToLastCell() {
+        let countRowZeroSection = toDoListTableView.numberOfRows(inSection: 0)
+        let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
+        toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
     }
 }
