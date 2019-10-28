@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxDataSources
 
-typealias ToDoSectionModel = AnimatableSectionModel<String, ToDo>
+typealias ToDoSectionModel = AnimatableSectionModel<Int, ToDo>
 
 protocol ToDoStorageType {
     @discardableResult

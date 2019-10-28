@@ -65,12 +65,6 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .bind(to: viewModel.createAction.inputs)
             .disposed(by: disposeBag)
         
-//        let longGesture = todoListTableView.rx.longPressGesture().share()
-//        longGesture.when(.began)
-//            .subscribe(onNext: {
-//
-//            })
-        
         movableCellLongGestureRecognizer.rx.event
             .bind { [weak self] (event) in
             

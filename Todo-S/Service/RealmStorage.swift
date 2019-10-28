@@ -61,10 +61,7 @@ class RealmStorage: ToDoStorageType {
         return Observable.combineLatest(toDoObservable, completedToDoObservable)
             .map { allToDo -> [ToDoSectionModel] in
                 let (toDos, completedToDos) = allToDo
-                return [
-                    ToDoSectionModel(model: "To Do", items: toDos),
-                    ToDoSectionModel(model: "Completed", items: completedToDos)
-                ]
+                return [ToDoSectionModel(model: 0, items: toDos)]
         }
     }
     
