@@ -26,7 +26,7 @@ class ToDoListViewModel: ToDoViewModel {
         return dataSource
     }()
     
-    var todoList: Observable<[ToDoSectionModel]> {
+    var toDoList: Observable<[ToDoSectionModel]> {
         return storage.toDoList(completed: false)
     }
     

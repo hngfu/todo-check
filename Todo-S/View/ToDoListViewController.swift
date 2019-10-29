@@ -40,8 +40,16 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
         
-        viewModel.todoList
+        let toDoListObservable = viewModel.toDoList.share()
+        
+        toDoListObservable
             .bind(to: toDoListTableView.rx.items(dataSource: viewModel.dataSource))
+            .disposed(by: disposeBag)
+        
+        toDoListObservable
+            .subscribe(onNext: { _ in
+                self.scrollToLastCell()
+            })
             .disposed(by: disposeBag)
         
         RxKeyboard.instance.visibleHeight
