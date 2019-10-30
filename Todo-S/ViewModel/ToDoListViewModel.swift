@@ -23,6 +23,13 @@ class ToDoListViewModel: ToDoViewModel {
             toDoCell.set(with: todo)
             return cell
         })
+        dataSource.decideViewTransition = { (_, _, change) in
+            let isMoved = change[1].movedItems.count > 0
+            if isMoved {
+                return .reload
+            }
+            return .animated
+        }
         return dataSource
     }()
     
@@ -36,4 +43,8 @@ class ToDoListViewModel: ToDoViewModel {
             return Observable.empty()
         }
     }()
+    
+    func moveToDo(at fromIndex: Int, to toIndex: Int) {
+        self.storage.moveToDo(at: fromIndex, to: toIndex, completed: false)
+    }
 }

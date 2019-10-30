@@ -27,6 +27,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     private var sourceIndexPath: IndexPath?
     private var snapShotView: UIView?
+    private var beginIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,23 +76,24 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         
         movableCellLongGestureRecognizer.rx.event
             .bind { [weak self] (event) in
-            
+                
                 //MARK: common
                 guard
                     let `self` = self
                     else { return }
-
+                
                 let location = event.location(in: self.toDoListTableView)
-
+                
                 guard
                     let indexPath = self.toDoListTableView.indexPathForRow(at: location)
                     else { return }
-
+                
                 switch event.state {
-
+                    
                 //MARK: began
                 case .began:
                     self.sourceIndexPath = indexPath
+                    self.beginIndexPath = indexPath
                     guard
                         let cell = self.toDoListTableView.cellForRow(at: indexPath)
                         else { return }
@@ -100,32 +102,35 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                     snapShot.center = cell.center
                     self.toDoListTableView.addSubview(snapShot)
                     cell.isHidden = true
-
+                    
                 //MARK: changed
                 case .changed:
                     guard
                         let snapShot = self.snapShotView,
                         let sourceIndexPath = self.sourceIndexPath
                         else { return }
-
+                    
                     snapShot.center.y = location.y
                     if indexPath != sourceIndexPath {
                         //TODO: Model change code
                         self.toDoListTableView.moveRow(at: sourceIndexPath, to: indexPath)
                         self.sourceIndexPath = indexPath
                     }
-
+                    
                 //MARK: ended
                 case .ended:
                     guard
-                        let cell = self.toDoListTableView.cellForRow(at: indexPath)
+                        let cell = self.toDoListTableView.cellForRow(at: indexPath),
+                        let beginIndexPath = self.beginIndexPath
                         else { return }
-
+                    
+                    self.viewModel.moveToDo(at: beginIndexPath.row, to: indexPath.row)
                     cell.isHidden = false
                     self.snapShotView?.removeFromSuperview()
                     self.sourceIndexPath = nil
                     self.snapShotView = nil
-
+                    self.beginIndexPath = nil
+                    
                 default:
                     break
                 }
@@ -144,6 +149,10 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     func scrollToLastCell() {
         let countRowZeroSection = toDoListTableView.numberOfRows(inSection: 0)
+        guard
+            countRowZeroSection > 0
+            else { return }
+        
         let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
         toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
     }
