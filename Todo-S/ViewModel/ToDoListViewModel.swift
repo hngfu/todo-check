@@ -24,9 +24,9 @@ class ToDoListViewModel: ToDoViewModel {
             return cell
         })
         dataSource.decideViewTransition = { (_, _, change) in
-            let isMoved = change[1].movedItems.count > 0
-            if isMoved {
-                return .reload
+            if change.count > 1 {
+                let isMoved = change[1].movedItems.count > 0
+                return isMoved ? .reload : .animated
             }
             return .animated
         }
