@@ -51,4 +51,15 @@ class ToDoListViewModel: ToDoViewModel {
             return Observable.empty()
         }
     }
+    
+    func makeShowCompletedListAction() -> CocoaAction {
+        return CocoaAction {
+            let completedToDoListViewModel = CompletedToDoListViewModel(title: "Completed",
+                                                                        coordinator: self.coordinator,
+                                                                        storage: self.storage)
+            let scene = Scene.completedToDoList(completedToDoListViewModel)
+            self.coordinator.transition(to: scene, using: .push, animated: true)
+            return Observable.empty()
+        }
+    }
 }

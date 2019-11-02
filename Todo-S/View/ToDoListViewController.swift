@@ -21,6 +21,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     @IBOutlet weak var inputTextField: RoundCornerTextField!
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var movableCellLongGestureRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet weak var showCompletedListButton: UIBarButtonItem!
     
     private let disposeBag = DisposeBag()
     var viewModel: ToDoListViewModel!
@@ -141,6 +142,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                     break
                 }
         }.disposed(by: disposeBag)
+        
+        showCompletedListButton.rx.action = viewModel.makeShowCompletedListAction()
         
         toDoListTableView.setContentOffset(.zero, animated: false)
     }
