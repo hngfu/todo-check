@@ -14,8 +14,12 @@ import RxRealm
 
 class RealmStorage: ToDoStorageType {
     private let realm: Realm
-    private let toDoStore: List<ToDo>
-    private let completedToDoStore: List<ToDo>
+    private let toDos: List<ToDo>
+    private lazy var toDoSectionModel = ToDoSectionModel(model: 0, items: self.toDos.toArray())
+    private lazy var toDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.toDoSectionModel])
+    private let completedToDos: List<ToDo>
+    private lazy var completedToDoSectionModel = ToDoSectionModel(model: 0, items: self.completedToDos.toArray())
+    private lazy var completedToDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.completedToDoSectionModel])
     
     init?() {
         guard
@@ -34,52 +38,54 @@ class RealmStorage: ToDoStorageType {
             let toDoList = realm.objects(ToDoList.self).first
             else { return nil }
         
-        self.toDoStore = toDoList.toDos
-        self.completedToDoStore = toDoList.completedToDos
+        self.toDos = toDoList.toDos
+        self.completedToDos = toDoList.completedToDos
     }
     
     @discardableResult
-    func createToDo(content: String, completed: Bool = false) -> Observable<ToDo> {
+    func createToDo(content: String) -> Observable<ToDo> {
         let toDo = ToDo()
         toDo.content = content
         
-        let store = completed ? completedToDoStore : toDoStore
         try? realm.write {
-            store.insert(toDo, at: store.count)
+            toDos.insert(toDo, at: toDos.count)
         }
+        
+        toDoSectionModel.items.insert(toDo, at: toDoSectionModel.items.count)
+        toDoStore.onNext([toDoSectionModel])
 
         return Observable.just(toDo)
     }
     
     @discardableResult
-    func toDoList(completed: Bool = false) -> Observable<[ToDoSectionModel]> {
-        let store = completed ? completedToDoStore : toDoStore
-        return Observable.array(from: store)
-            .map { toDos in
-                return [ToDoSectionModel(model: 0, items: toDos)]
-        }
+    func toDoList(isCompleted: Bool = false) -> Observable<[ToDoSectionModel]> {
+        return isCompleted ? completedToDoStore : toDoStore
     }
     
     @discardableResult
-    func delete(toDo: ToDo) -> Observable<ToDo> {
+    func complete(toDo: ToDo) -> Observable<ToDo> {
+        guard
+            let index = toDos.index(of: toDo)
+            else { return Observable.just(toDo) }
         
         try? realm.write {
-            realm.delete(toDo)
+            toDos.remove(at: index)
+            completedToDos.insert(toDo, at: completedToDos.count)
         }
+        toDoSectionModel.items.remove(at: index)
+        completedToDoSectionModel.items.insert(toDo, at: completedToDoSectionModel.items.count)
+        toDoStore.onNext([toDoSectionModel])
         
         return Observable.just(toDo)
     }
-    
+
     @discardableResult
-    func moveToDo(at fromIndex: Int, to toIndex: Int, completed: Bool = false) -> Observable<ToDo> {
-        let store: List<ToDo> = completed ? completedToDoStore : toDoStore
-        let toDo = store[fromIndex]
-        
+    func moveToDo(at fromIndex: Int, to toIndex: Int, isCompleted: Bool = false) -> Observable<ToDo> {
+        let list = isCompleted ? completedToDos : toDos
+        let toDo = list[fromIndex]
         try? realm.write {
-            store.remove(at: fromIndex)
-            store.insert(toDo, at: toIndex)
+            list.move(from: fromIndex, to: toIndex)
         }
-        
         return Observable.just(toDo)
     }
 }

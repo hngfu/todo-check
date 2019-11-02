@@ -29,6 +29,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     private var snapShotView: UIView?
     private var beginIndexPath: IndexPath?
     
+    private var oldCellCount: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
@@ -40,16 +42,21 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         viewModel.title
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
-        
-        let toDoListObservable = viewModel.toDoList.share()
+
+        let toDoListObservable = viewModel.toDoList.asDriver(onErrorJustReturn: [])
         
         toDoListObservable
-            .bind(to: toDoListTableView.rx.items(dataSource: viewModel.dataSource))
+            .drive(toDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         toDoListObservable
-            .subscribe(onNext: { _ in
-                self.scrollToLastCell()
+            .drive(onNext: { sectionModels in
+                let newCellCount = sectionModels[0].items.count
+                let isInserted = self.oldCellCount ?? 0 < newCellCount
+                if isInserted {
+                    self.scrollToLastCell()
+                }
+                self.oldCellCount = newCellCount
             })
             .disposed(by: disposeBag)
         
@@ -112,7 +119,6 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                     
                     snapShot.center.y = location.y
                     if indexPath != sourceIndexPath {
-                        //TODO: Model change code
                         self.toDoListTableView.moveRow(at: sourceIndexPath, to: indexPath)
                         self.sourceIndexPath = indexPath
                     }

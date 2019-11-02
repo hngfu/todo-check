@@ -14,14 +14,14 @@ typealias ToDoSectionModel = AnimatableSectionModel<Int, ToDo>
 
 protocol ToDoStorageType {
     @discardableResult
-    func createToDo(content: String, completed: Bool) -> Observable<ToDo>
+    func createToDo(content: String) -> Observable<ToDo>
     
     @discardableResult
-    func toDoList(completed: Bool) -> Observable<[ToDoSectionModel]>
+    func toDoList(isCompleted: Bool) -> Observable<[ToDoSectionModel]>
     
     @discardableResult
-    func delete(toDo: ToDo) -> Observable<ToDo>
+    func complete(toDo: ToDo) -> Observable<ToDo>
     
     @discardableResult
-    func moveToDo(at fromIndex: Int, to toIndex: Int, completed: Bool) -> Observable<ToDo>
+    func moveToDo(at fromIndex: Int, to toIndex: Int, isCompleted: Bool) -> Observable<ToDo>
 }

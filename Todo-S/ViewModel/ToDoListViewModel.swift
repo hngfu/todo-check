@@ -13,38 +13,42 @@ import RxCocoa
 import Action
 
 class ToDoListViewModel: ToDoViewModel {
-    let dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
-        let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, todo in
+    lazy var dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, toDo in
             let cell = tableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier,
                                                      for: indexPath)
             guard
                 let toDoCell = cell as? ToDoTableViewCell
                 else { return cell }
-            toDoCell.set(with: todo)
+            toDoCell.set(with: toDo)
+            toDoCell.checkButton.rx.action = self.makeCompleteAction(toDo: toDo)
             return cell
         })
-        dataSource.decideViewTransition = { (_, _, change) in
-            if change.count > 1 {
-                let isMoved = change[1].movedItems.count > 0
-                return isMoved ? .reload : .animated
-            }
-            return .animated
-        }
+        dataSource.animationConfiguration = .init(insertAnimation: .fade,
+                                                  reloadAnimation: .automatic,
+                                                  deleteAnimation: .right)
         return dataSource
     }()
     
     var toDoList: Observable<[ToDoSectionModel]> {
-        return storage.toDoList(completed: false)
+        return storage.toDoList(isCompleted: false)
     }
     
     lazy var createAction: Action<String, Void> = {
         return Action<String, Void> { content in
-            self.storage.createToDo(content: content, completed: false)
+            self.storage.createToDo(content: content)
             return Observable.empty()
         }
     }()
     
     func moveToDo(at fromIndex: Int, to toIndex: Int) {
-        self.storage.moveToDo(at: fromIndex, to: toIndex, completed: false)
+        self.storage.moveToDo(at: fromIndex, to: toIndex, isCompleted: false)
+    }
+    
+    private func makeCompleteAction(toDo: ToDo) -> CocoaAction {
+        return CocoaAction {
+            self.storage.complete(toDo: toDo)
+            return Observable.empty()
+        }
     }
 }
