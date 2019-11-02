@@ -23,8 +23,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     @IBOutlet weak var movableCellLongGestureRecognizer: UILongPressGestureRecognizer!
     @IBOutlet weak var showCompletedListButton: UIBarButtonItem!
     
-    private let disposeBag = DisposeBag()
     var viewModel: ToDoListViewModel!
+    private let disposeBag = DisposeBag()
     
     private var sourceIndexPath: IndexPath?
     private var snapShotView: UIView?
@@ -144,6 +144,12 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         }.disposed(by: disposeBag)
         
         showCompletedListButton.rx.action = viewModel.makeShowCompletedListAction()
+        
+        showCompletedListButton.rx.tap
+            .subscribe(onNext: {
+                self.inputTextField.resignFirstResponder()
+            })
+            .disposed(by: disposeBag)
         
         toDoListTableView.setContentOffset(.zero, animated: false)
     }
