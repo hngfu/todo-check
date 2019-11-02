@@ -7,7 +7,31 @@
 //
 
 import Foundation
+import RxSwift
+import RxDataSources
+import Action
 
 class CompletedToDoListViewModel: ToDoViewModel {
+    lazy var dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, toDo in
+            let cell = UITableViewCell()
+            cell.textLabel?.text = toDo.content
+            return cell
+        })
+        dataSource.animationConfiguration = .init(insertAnimation: .fade,
+                                                  reloadAnimation: .automatic,
+                                                  deleteAnimation: .right)
+        return dataSource
+    }()
     
+    var toDoList: Observable<[ToDoSectionModel]> {
+        return storage.toDoList(isCompleted: true)
+    }
+    
+    func makeDeleteAction() -> CocoaAction {
+        return CocoaAction {
+            self.storage.deleteAllCompleted()
+            return Observable.empty()
+        }
+    }
 }
