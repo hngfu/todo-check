@@ -73,8 +73,9 @@ class RealmStorage: ToDoStorageType {
             completedToDos.insert(toDo, at: completedToDos.count)
         }
         toDoSectionModel.items.remove(at: index)
-        completedToDoSectionModel.items.insert(toDo, at: completedToDoSectionModel.items.count)
         toDoStore.onNext([toDoSectionModel])
+        completedToDoSectionModel.items.insert(toDo, at: completedToDoSectionModel.items.count)
+        completedToDoStore.onNext([completedToDoSectionModel])
         
         return Observable.just(toDo)
     }
@@ -87,5 +88,17 @@ class RealmStorage: ToDoStorageType {
             list.move(from: fromIndex, to: toIndex)
         }
         return Observable.just(toDo)
+    }
+    
+    func deleteAllCompleted() -> Completable {
+        let subject = PublishSubject<Void>()
+        
+        try? realm.write {
+            completedToDoSectionModel.items.removeAll()
+            completedToDoStore.onNext([completedToDoSectionModel])
+            realm.delete(completedToDos)
+        }
+        
+        return subject.ignoreElements()
     }
 }

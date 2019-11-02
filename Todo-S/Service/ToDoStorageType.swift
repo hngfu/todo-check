@@ -24,4 +24,7 @@ protocol ToDoStorageType {
     
     @discardableResult
     func moveToDo(at fromIndex: Int, to toIndex: Int, isCompleted: Bool) -> Observable<ToDo>
+    
+    @discardableResult
+    func deleteAllCompleted() -> Completable
 }
