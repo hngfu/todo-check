@@ -28,10 +28,7 @@ class CompletedToDoListViewModel: ToDoViewModel {
         return storage.toDoList(isCompleted: true)
     }
     
-    func makeDeleteAction() -> CocoaAction {
-        return CocoaAction {
-            self.storage.deleteAllCompleted()
-            return Observable.empty()
-        }
+    func deleteAllCompletedToDo() {
+        self.storage.deleteAllCompleted()
     }
 }

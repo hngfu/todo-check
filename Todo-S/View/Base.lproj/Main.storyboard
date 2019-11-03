@@ -132,6 +132,7 @@
                         <outlet property="completedToDoListTableView" destination="XXe-Mo-Otm" id="Bpn-Yn-IwO"/>
                         <outlet property="deleteButton" destination="GDv-Yr-pqS" id="Ewj-97-Ipc"/>
                         <outlet property="shareButton" destination="AyB-HT-SYu" id="KVP-8k-4pc"/>
+                        <outlet property="toolBar" destination="eT1-Km-Y82" id="KQL-NA-bQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q09-pt-fQQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
