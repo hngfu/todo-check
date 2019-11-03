@@ -92,20 +92,18 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                     else { return }
                 
                 let location = event.location(in: self.toDoListTableView)
-                
-                guard
-                    let indexPath = self.toDoListTableView.indexPathForRow(at: location)
-                    else { return }
-                
+
                 switch event.state {
                     
                 //MARK: began
                 case .began:
-                    self.sourceIndexPath = indexPath
-                    self.beginIndexPath = indexPath
                     guard
+                        let indexPath = self.toDoListTableView.indexPathForRow(at: location),
                         let cell = self.toDoListTableView.cellForRow(at: indexPath)
                         else { return }
+                    
+                    self.sourceIndexPath = indexPath
+                    self.beginIndexPath = indexPath
                     let snapShot = self.hoveringSnapShotImageView(of: cell)
                     self.snapShotView = snapShot
                     snapShot.center = cell.center
@@ -115,6 +113,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                 //MARK: changed
                 case .changed:
                     guard
+                        let indexPath = self.toDoListTableView.indexPathForRow(at: location),
                         let snapShot = self.snapShotView,
                         let sourceIndexPath = self.sourceIndexPath
                         else { return }
@@ -128,6 +127,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
                 //MARK: ended
                 case .ended:
                     guard
+                        let indexPath = self.sourceIndexPath,
                         let cell = self.toDoListTableView.cellForRow(at: indexPath),
                         let beginIndexPath = self.beginIndexPath
                         else { return }
