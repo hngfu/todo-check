@@ -15,11 +15,11 @@ import RxRealm
 class RealmStorage: ToDoStorageType {
     private let realm: Realm
     private let toDos: List<ToDo>
-    private lazy var toDoSectionModel = ToDoSectionModel(model: 0, items: self.toDos.toArray())
-    private lazy var toDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.toDoSectionModel])
+    private var toDoSectionModel: ToDoSectionModel
+    private let toDoStore: BehaviorSubject<[ToDoSectionModel]>
     private let completedToDos: List<ToDo>
-    private lazy var completedToDoSectionModel = ToDoSectionModel(model: 0, items: self.completedToDos.toArray())
-    private lazy var completedToDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.completedToDoSectionModel])
+    private var completedToDoSectionModel: ToDoSectionModel
+    private let completedToDoStore: BehaviorSubject<[ToDoSectionModel]>
     
     init?() {
         guard
@@ -39,7 +39,11 @@ class RealmStorage: ToDoStorageType {
             else { return nil }
         
         self.toDos = toDoList.toDos
+        self.toDoSectionModel = ToDoSectionModel(model: 0, items: self.toDos.toArray())
+        self.toDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.toDoSectionModel])
         self.completedToDos = toDoList.completedToDos
+        self.completedToDoSectionModel = ToDoSectionModel(model: 0, items: self.completedToDos.toArray())
+        self.completedToDoStore = BehaviorSubject<[ToDoSectionModel]>(value: [self.completedToDoSectionModel])
     }
     
     @discardableResult
