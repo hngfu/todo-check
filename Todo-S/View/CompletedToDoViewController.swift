@@ -35,13 +35,20 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
             .drive(completedToDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
-        toDoListObservable
+        let hasCellObservable = toDoListObservable
             .map { sectionModels -> Bool in
                 let hasCell = sectionModels[0].items.count > 0
                 return hasCell
         }
-        .drive(shareButton.rx.isEnabled)
-        .disposed(by: disposeBag)
+        .distinctUntilChanged()
+        
+        hasCellObservable
+            .drive(shareButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        hasCellObservable
+            .drive(deleteButton.rx.isEnabled)
+            .disposed(by: disposeBag)
         
         deleteButton.rx.tap
             .subscribe(onNext: {
