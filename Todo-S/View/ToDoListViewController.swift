@@ -37,6 +37,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
                                    forCellReuseIdentifier: ToDoTableViewCell.identifier)
         toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
+        inputTextField.enablesReturnKeyAutomatically = true
     }
     
     func bindViewModel() {
@@ -152,9 +153,15 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .disposed(by: disposeBag)
         
         toDoListTableView.setContentOffset(.zero, animated: false)
+        
+        toDoListTableView.rx.tapGesture()
+            .subscribe(onNext: { _ in
+                self.inputTextField.resignFirstResponder()
+            })
+            .disposed(by: disposeBag)
     }
     
-    func hoveringSnapShotImageView(of view: UIView) -> UIImageView {
+    private func hoveringSnapShotImageView(of view: UIView) -> UIImageView {
         let snapShotImage = view.snapShotImage()
         let snapShotImageView = UIImageView(image: snapShotImage)
         snapShotImageView.transform = .init(scaleX: 1.05, y: 1.05)
@@ -162,7 +169,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         return snapShotImageView
     }
     
-    func scrollToLastCell() {
+    private func scrollToLastCell() {
         let countRowZeroSection = toDoListTableView.numberOfRows(inSection: 0)
         guard
             countRowZeroSection > 0

@@ -29,9 +29,19 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
         
-        viewModel.toDoList
-            .bind(to: completedToDoListTableView.rx.items(dataSource: viewModel.dataSource))
+        let toDoListObservable = viewModel.toDoList.asDriver(onErrorJustReturn: [])
+        
+        toDoListObservable
+            .drive(completedToDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
+        
+        toDoListObservable
+            .map { sectionModels -> Bool in
+                let hasCell = sectionModels[0].items.count > 0
+                return hasCell
+        }
+        .drive(shareButton.rx.isEnabled)
+        .disposed(by: disposeBag)
         
         deleteButton.rx.tap
             .subscribe(onNext: {
@@ -45,10 +55,6 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
             .disposed(by: disposeBag)
         
         shareButton.rx.tap
-            .filter({ _ -> Bool in
-                let hasCell = self.completedToDoListTableView.numberOfRows(inSection: 0) > 0
-                return hasCell ? true : false
-            })
             .subscribe(onNext: {
                 guard
                     let img = self.contentImage()
