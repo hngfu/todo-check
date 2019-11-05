@@ -8,8 +8,16 @@
 
 import UIKit
 
-
+@IBDesignable
 class RoundCornerTextField: UITextField {
+    
+    @IBInspectable
+    var cornerRadius: CGFloat = 0 {
+        didSet {
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -21,7 +29,6 @@ class RoundCornerTextField: UITextField {
     }
     
     private func setup() {
-        self.layer.cornerRadius = self.layer.bounds.height / 2
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.lightGray.cgColor
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: self.frame.height))
