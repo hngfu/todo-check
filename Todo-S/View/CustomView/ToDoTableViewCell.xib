@@ -10,33 +10,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoTableViewCell" rowHeight="47" id="KGk-i7-Jjw" customClass="ToDoTableViewCell" customModule="Todo_S" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="366" height="47"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoTableViewCell" rowHeight="314" id="KGk-i7-Jjw" customClass="ToDoTableViewCell" customModule="Todo_S" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="314"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="366" height="47"/>
+                <rect key="frame" x="0.0" y="0.0" width="366" height="314"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sx0-9c-zqT">
-                        <rect key="frame" x="133" y="9" width="127" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0It-6n-E44">
-                        <rect key="frame" x="26" y="4" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUz-cC-qfq">
+                        <rect key="frame" x="20" y="23" width="311" height="283"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sx0-9c-zqT">
+                                <rect key="frame" x="8" y="8" width="287" height="267"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Sx0-9c-zqT" firstAttribute="leading" secondItem="mUz-cC-qfq" secondAttribute="leading" constant="8" id="7cN-hI-IIZ"/>
+                            <constraint firstItem="Sx0-9c-zqT" firstAttribute="top" secondItem="mUz-cC-qfq" secondAttribute="top" constant="8" id="7zJ-lS-BdN"/>
+                            <constraint firstAttribute="bottom" secondItem="Sx0-9c-zqT" secondAttribute="bottom" constant="8" id="HMp-TQ-Z5l"/>
+                            <constraint firstAttribute="trailing" secondItem="Sx0-9c-zqT" secondAttribute="trailing" constant="16" id="MwV-H2-YQ6"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0It-6n-E44">
+                        <rect key="frame" x="316" y="8" width="30" height="30"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0It-6n-E44" secondAttribute="height" multiplier="1:1" id="Ne4-hR-wWy"/>
+                        </constraints>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mUz-cC-qfq" secondAttribute="bottom" constant="8" id="EbP-FJ-GIR"/>
+                    <constraint firstItem="mUz-cC-qfq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JgQ-GK-u4m"/>
+                    <constraint firstAttribute="trailing" secondItem="0It-6n-E44" secondAttribute="trailing" constant="20" id="ZMt-uJ-Cth"/>
+                    <constraint firstItem="0It-6n-E44" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gGY-QR-Zb8"/>
+                    <constraint firstItem="mUz-cC-qfq" firstAttribute="top" secondItem="0It-6n-E44" secondAttribute="centerY" id="hlN-uc-bSy"/>
+                    <constraint firstItem="mUz-cC-qfq" firstAttribute="trailing" secondItem="0It-6n-E44" secondAttribute="centerX" id="rgN-sb-Xj1"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkButton" destination="0It-6n-E44" id="PNK-tD-x3t"/>
+                <outlet property="containerView" destination="mUz-cC-qfq" id="Q5G-J4-kEg"/>
                 <outlet property="contentLabel" destination="Sx0-9c-zqT" id="3oD-Ia-ygC"/>
             </connections>
-            <point key="canvasLocation" x="165.21739130434784" y="130.91517857142856"/>
+            <point key="canvasLocation" x="160.86956521739131" y="271.875"/>
         </tableViewCell>
     </objects>
 </document>

@@ -15,6 +15,13 @@ class ToDoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        checkButton.layer.cornerRadius = 15
+        containerView.layer.cornerRadius = 12
+    }
     
     func set(with toDo: ToDo) {
         self.contentLabel.text = toDo.content
