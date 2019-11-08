@@ -30,9 +30,7 @@ extension Scene {
             
             //MARK: Completed To Do List
         case .completedToDoList(let viewModel):
-            guard
-                let completedToDoListVC = storyboard.instantiateViewController(withIdentifier: CompletedToDoViewController.identifier) as? CompletedToDoViewController
-                else { return nil }
+            guard let completedToDoListVC = storyboard.instantiateViewController(withIdentifier: CompletedToDoViewController.identifier) as? CompletedToDoViewController else { return nil }
             
             completedToDoListVC.bind(viewModel: viewModel)
             return completedToDoListVC

@@ -7,16 +7,18 @@
 //
 
 import Foundation
-import RealmSwift
 import RxSwift
 import RxCocoa
+import RealmSwift
 import RxRealm
 
 class RealmStorage: ToDoStorageType {
     private let realm: Realm
+    
     private let toDos: List<ToDo>
     private var toDoSectionModel: ToDoSectionModel
     private let toDoStore: BehaviorSubject<[ToDoSectionModel]>
+    
     private let completedToDos: List<ToDo>
     private var completedToDoSectionModel: ToDoSectionModel
     private let completedToDoStore: BehaviorSubject<[ToDoSectionModel]>
@@ -76,6 +78,7 @@ class RealmStorage: ToDoStorageType {
             toDos.remove(at: index)
             completedToDos.insert(toDo, at: completedToDos.count)
         }
+        
         toDoSectionModel.items.remove(at: index)
         toDoStore.onNext([toDoSectionModel])
         completedToDoSectionModel.items.insert(toDo, at: completedToDoSectionModel.items.count)
@@ -94,6 +97,7 @@ class RealmStorage: ToDoStorageType {
         return Observable.just(toDo)
     }
     
+    @discardableResult
     func deleteAllCompleted() -> Completable {
         let subject = PublishSubject<Void>()
         

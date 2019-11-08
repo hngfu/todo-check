@@ -11,9 +11,9 @@ import RxSwift
 
 class SceneCoordinator: CoordinatorType {
     
-    private let disposeBag = DisposeBag()
     private let window: UIWindow
     private var currentViewController: UIViewController
+    private let disposeBag = DisposeBag()
     
     required init(window: UIWindow) {
         self.window = window
@@ -23,11 +23,9 @@ class SceneCoordinator: CoordinatorType {
     @discardableResult
     func transition(to scene: Scene, using style: TransitionStyle, animated: Bool) -> Completable {
         let subject = PublishSubject<Void>()
-        guard
-            let target = scene.instantiate()
-            else {
-                subject.onError(SceneError.failedToInstantiate)
-                return subject.ignoreElements()
+        guard let target = scene.instantiate() else {
+            subject.onError(SceneError.failedToInstantiate)
+            return subject.ignoreElements()
         }
         
         switch style {
@@ -40,11 +38,9 @@ class SceneCoordinator: CoordinatorType {
             
             //MARK: Push
         case .push:
-            guard
-                let nav = currentViewController.navigationController
-                else {
-                    subject.onError(TransitionError.missingNavigationController)
-                    break
+            guard let nav = currentViewController.navigationController else {
+                subject.onError(TransitionError.missingNavigationController)
+                break
             }
             
             nav.rx.willShow

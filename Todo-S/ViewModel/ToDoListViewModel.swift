@@ -35,8 +35,8 @@ class ToDoListViewModel: ToDoViewModel {
     }
     
     lazy var createAction: Action<String, Void> = {
-        return Action<String, Void> { content in
-            self.storage.createToDo(content: content)
+        return Action<String, Void> { [weak self] content in
+            self?.storage.createToDo(content: content)
             return Observable.empty()
         }
     }()
@@ -46,14 +46,15 @@ class ToDoListViewModel: ToDoViewModel {
     }
     
     private func makeCompleteAction(toDo: ToDo) -> CocoaAction {
-        return CocoaAction {
-            self.storage.complete(toDo: toDo)
+        return CocoaAction { [weak self] in
+            self?.storage.complete(toDo: toDo)
             return Observable.empty()
         }
     }
     
     func makeShowCompletedListAction() -> CocoaAction {
-        return CocoaAction {
+        return CocoaAction { [weak self] in
+            guard let `self` = self else { return Observable.empty() }
             let completedToDoListViewModel = CompletedToDoListViewModel(title: "Completed",
                                                                         coordinator: self.coordinator,
                                                                         storage: self.storage)

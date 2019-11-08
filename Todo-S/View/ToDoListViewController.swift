@@ -36,7 +36,6 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         super.viewDidLoad()
         toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
                                    forCellReuseIdentifier: ToDoTableViewCell.identifier)
-        toDoListTableView.addGestureRecognizer(movableCellLongGestureRecognizer)
         inputTextField.enablesReturnKeyAutomatically = true
     }
     
@@ -52,7 +51,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .disposed(by: disposeBag)
         
         toDoListObservable
-            .drive(onNext: { sectionModels in
+            .drive(onNext: { [weak self] sectionModels in
+                guard let `self` = self else { return }
                 let newCellCount = sectionModels[0].items.count
                 let isInserted = self.oldCellCount ?? 0 < newCellCount
                 if isInserted {
@@ -87,14 +87,10 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .bind { [weak self] (event) in
                 
                 //MARK: common
-                guard
-                    let `self` = self
-                    else { return }
-                
+                guard let `self` = self else { return }
                 let location = event.location(in: self.toDoListTableView)
 
                 switch event.state {
-                    
                 //MARK: began
                 case .began:
                     guard
@@ -147,16 +143,16 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         showCompletedListButton.rx.action = viewModel.makeShowCompletedListAction()
         
         showCompletedListButton.rx.tap
-            .subscribe(onNext: {
-                self.inputTextField.resignFirstResponder()
+            .subscribe(onNext: { [weak self] in
+                self?.inputTextField.resignFirstResponder()
             })
             .disposed(by: disposeBag)
         
         toDoListTableView.setContentOffset(.zero, animated: false)
         
         toDoListTableView.rx.tapGesture()
-            .subscribe(onNext: { _ in
-                self.inputTextField.resignFirstResponder()
+            .subscribe(onNext: { [weak self] _ in
+                self?.inputTextField.resignFirstResponder()
             })
             .disposed(by: disposeBag)
     }
@@ -171,10 +167,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     private func scrollToLastCell() {
         let countRowZeroSection = toDoListTableView.numberOfRows(inSection: 0)
-        guard
-            countRowZeroSection > 0
-            else { return }
-        
+        guard countRowZeroSection > 0 else { return }
         let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
         toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
     }

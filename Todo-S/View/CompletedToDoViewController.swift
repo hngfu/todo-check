@@ -22,7 +22,12 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
     @IBOutlet weak var toolBar: UIToolbar!
     
     var viewModel: CompletedToDoListViewModel!
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        disposeBag = DisposeBag()
+        super.viewDidDisappear(animated)
+    }
     
     func bindViewModel() {
         viewModel.title
@@ -51,23 +56,21 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
             .disposed(by: disposeBag)
         
         deleteButton.rx.tap
-            .subscribe(onNext: {
+            .subscribe(onNext: { [weak self] in
                 let alert = UIAlertController(title: nil, message: "완료된 To Do들이 모두 삭제됩니다.", preferredStyle: .actionSheet)
                 let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-                let deleteAction = UIAlertAction(title: "모두 삭제", style: .destructive, handler: { _ in self.viewModel.deleteAllCompletedToDo() })
+                let deleteAction = UIAlertAction(title: "모두 삭제", style: .destructive, handler: { _ in self?.viewModel.deleteAllCompletedToDo() })
                 alert.addAction(cancelAction)
                 alert.addAction(deleteAction)
-                self.present(alert, animated: true, completion: nil)
+                self?.present(alert, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
         shareButton.rx.tap
-            .subscribe(onNext: {
-                guard
-                    let img = self.contentImage()
-                    else { return }
+            .subscribe(onNext: { [weak self] in
+                guard let img = self?.contentImage() else { return }
                 let vc = UIActivityViewController(activityItems: [img], applicationActivities: nil)
-                self.present(vc, animated: true, completion: nil)
+                self?.present(vc, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }
@@ -83,15 +86,14 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
         let tmpView = UIView(frame: contentRect)
         completedToDoListTableView.removeFromSuperview()
         tmpView.addSubview(completedToDoListTableView)
-        guard
-            let context = UIGraphicsGetCurrentContext()
-            else { return nil }
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
         tmpView.layer.render(in: context)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         tmpView.removeFromSuperview()
         self.view.addSubview(completedToDoListTableView)
 
-        completedToDoListTableView.snp.makeConstraints { (make) in
+        completedToDoListTableView.snp.makeConstraints { [weak self] (make) in
+            guard let `self` = self else { return }
             make.top.equalTo(self.view.snp.top)
             make.leading.equalTo(self.view.snp.leading)
             make.trailing.equalTo(self.view.snp.trailing)

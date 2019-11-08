@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
 
 class ToDoTableViewCell: UITableViewCell {
     static let identifier = "toDoTableViewCell"
