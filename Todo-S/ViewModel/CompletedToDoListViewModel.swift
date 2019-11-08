@@ -18,9 +18,9 @@ class CompletedToDoListViewModel: ToDoViewModel {
             cell.textLabel?.text = toDo.content
             return cell
         })
-        dataSource.animationConfiguration = .init(insertAnimation: .fade,
+        dataSource.animationConfiguration = .init(insertAnimation: .left,
                                                   reloadAnimation: .automatic,
-                                                  deleteAnimation: .right)
+                                                  deleteAnimation: .fade)
         return dataSource
     }()
     

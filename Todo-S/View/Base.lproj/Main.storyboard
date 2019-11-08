@@ -36,7 +36,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To do" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p73-gN-GVD" customClass="RoundCornerTextField" customModule="Todo_S" customModuleProvider="target">
                                         <rect key="frame" x="16" y="4" width="382" height="36"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="Syh-C8-cyx"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="OTf-sj-69N"/>
                     </view>
                     <navigationItem key="navigationItem" id="PrX-Sm-xPE">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="completed_list" id="4ge-Op-ZFu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon-list-completed" id="4ge-Op-ZFu">
                             <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -159,6 +159,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="completed_list" width="35" height="35"/>
+        <image name="icon-list-completed" width="35" height="35"/>
     </resources>
 </document>
