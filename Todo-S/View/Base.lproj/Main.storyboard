@@ -26,7 +26,7 @@
         <!--To Do List View Controller-->
         <scene sceneID="VCE-dS-GUh">
             <objects>
-                <viewController id="8y6-vj-3Nb" customClass="ToDoListViewController" customModule="Todo_S" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8y6-vj-3Nb" customClass="ToDoListViewController" customModule="할_일_체크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1pX-vH-1BI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75g-b9-gkf">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To do" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p73-gN-GVD" customClass="RoundCornerTextField" customModule="Todo_S" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To do" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p73-gN-GVD" customClass="RoundCornerTextField" customModule="할_일_체크" customModuleProvider="target">
                                         <rect key="frame" x="16" y="4" width="382" height="36"/>
                                         <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -76,7 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="OTf-sj-69N"/>
                     </view>
                     <navigationItem key="navigationItem" id="PrX-Sm-xPE">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon-list-completed" id="4ge-Op-ZFu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="completed_list" id="4ge-Op-ZFu">
                             <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -96,7 +96,7 @@
         <!--Completed To Do View Controller-->
         <scene sceneID="nDa-pv-1GK">
             <objects>
-                <viewController storyboardIdentifier="CompletedToDoListViewController" id="4ns-WH-gRl" customClass="CompletedToDoViewController" customModule="Todo_S" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompletedToDoListViewController" id="4ns-WH-gRl" customClass="CompletedToDoViewController" customModule="할_일_체크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9z-q0-rPe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,6 +159,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-list-completed" width="35" height="35"/>
+        <image name="completed_list" width="35" height="35"/>
     </resources>
 </document>
