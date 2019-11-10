@@ -20,8 +20,6 @@ class CompletedToDoListViewModel: ToDoViewModel {
                 let completedToDoCell = cell as? CompletedToDoTableViewCell
                 else { return cell }
             completedToDoCell.set(with: toDo)
-            let isEvenIndex = indexPath.row.isMultiple(of: 2)
-            completedToDoCell.setColor(isEvenIndex: isEvenIndex)
             return completedToDoCell
         })
         dataSource.animationConfiguration = .init(insertAnimation: .left,

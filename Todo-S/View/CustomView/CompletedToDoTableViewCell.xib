@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,29 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="423" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-AM-8PT">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-EF-24G" customClass="DashedLineView" customModule="할일체크" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="38" width="423" height="12"/>
-                        <subviews>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPg-0J-dhE">
-                                <rect key="frame" x="0.0" y="0.0" width="423" height="12"/>
-                                <color key="backgroundColor" name="Completed ToDo Cell Color"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPT-7e-hrQ" customClass="DashedLineView" customModule="할일체크" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="423" height="12"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" name="ToDo Background Color"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="HPg-0J-dhE" secondAttribute="bottom" id="08Z-pA-WHY"/>
-                            <constraint firstItem="XPT-7e-hrQ" firstAttribute="top" secondItem="yJ0-AM-8PT" secondAttribute="top" id="0dr-th-Ebb"/>
-                            <constraint firstItem="HPg-0J-dhE" firstAttribute="top" secondItem="yJ0-AM-8PT" secondAttribute="top" id="0gR-qS-ezz"/>
-                            <constraint firstItem="XPT-7e-hrQ" firstAttribute="leading" secondItem="yJ0-AM-8PT" secondAttribute="leading" id="Ga7-gb-eag"/>
-                            <constraint firstAttribute="trailing" secondItem="HPg-0J-dhE" secondAttribute="trailing" id="Kib-hs-t8W"/>
-                            <constraint firstItem="HPg-0J-dhE" firstAttribute="leading" secondItem="yJ0-AM-8PT" secondAttribute="leading" id="T0U-T1-Enr"/>
-                            <constraint firstAttribute="trailing" secondItem="XPT-7e-hrQ" secondAttribute="trailing" id="msC-tr-15L"/>
-                            <constraint firstAttribute="height" constant="12" id="q0R-hc-VPV"/>
-                            <constraint firstAttribute="bottom" secondItem="XPT-7e-hrQ" secondAttribute="bottom" id="uOQ-Oc-88j"/>
+                            <constraint firstAttribute="height" constant="12" id="bKs-OE-mX5"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIX-k4-EL6">
@@ -53,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ukq-nM-3t1" firstAttribute="top" secondItem="PIX-k4-EL6" secondAttribute="top" constant="8" id="F4Y-BL-y0P"/>
                             <constraint firstAttribute="trailing" secondItem="ukq-nM-3t1" secondAttribute="trailing" constant="8" id="MUZ-oK-uee"/>
@@ -62,15 +43,15 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="yJ0-AM-8PT" secondAttribute="bottom" id="2hV-VN-lhp"/>
+                    <constraint firstAttribute="trailing" secondItem="aH7-EF-24G" secondAttribute="trailing" id="2xr-dy-Hfi"/>
                     <constraint firstItem="PIX-k4-EL6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7wU-4u-xNs"/>
-                    <constraint firstAttribute="trailing" secondItem="yJ0-AM-8PT" secondAttribute="trailing" id="FXV-tY-2tK"/>
-                    <constraint firstItem="yJ0-AM-8PT" firstAttribute="top" secondItem="PIX-k4-EL6" secondAttribute="bottom" id="XT9-oH-qlE"/>
+                    <constraint firstItem="aH7-EF-24G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rv2-gD-txR"/>
                     <constraint firstAttribute="trailing" secondItem="PIX-k4-EL6" secondAttribute="trailing" id="Zew-5J-GWl"/>
                     <constraint firstItem="PIX-k4-EL6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eH2-Fm-qK2"/>
-                    <constraint firstItem="yJ0-AM-8PT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oTS-hx-1n7"/>
+                    <constraint firstItem="aH7-EF-24G" firstAttribute="top" secondItem="PIX-k4-EL6" secondAttribute="bottom" id="m8H-jb-Zmg"/>
+                    <constraint firstAttribute="bottom" secondItem="aH7-EF-24G" secondAttribute="bottom" id="v3R-2S-nW7"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,15 +60,7 @@
                 <outlet property="containerView" destination="PIX-k4-EL6" id="wz1-tN-ovW"/>
                 <outlet property="contentLabel" destination="ukq-nM-3t1" id="BFR-oI-dic"/>
             </connections>
-            <point key="canvasLocation" x="206.52173913043481" y="142.63392857142856"/>
+            <point key="canvasLocation" x="206.52173913043481" y="141.96428571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="Completed ToDo Cell Color">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ToDo Background Color">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

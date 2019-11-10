@@ -21,9 +21,9 @@ class DashedLineView: UIView {
     
     func setup() {
         let dashedLineLayer = CAShapeLayer()
-        dashedLineLayer.strokeColor = UIColor.white.cgColor
-        dashedLineLayer.lineWidth = 2.5
-        dashedLineLayer.lineDashPattern = [9]
+        dashedLineLayer.strokeColor = UIColor(named: "ToDo Cell Front Color")?.cgColor
+        dashedLineLayer.lineWidth = 1
+        dashedLineLayer.lineDashPattern = [6, 4]
         
         let path = CGMutablePath()
         path.addLines(between: [CGPoint(x: 0, y: self.bounds.height / 2),

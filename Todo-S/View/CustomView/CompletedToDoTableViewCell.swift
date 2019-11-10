@@ -14,13 +14,6 @@ class CompletedToDoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
-    
-    func setColor(isEvenIndex: Bool) {
-        let evenColor = UIColor(named: "Completed ToDo Cell Color")
-        let oddColor = UIColor(named: "ToDo Background Color")
-        let color = isEvenIndex ? evenColor : oddColor
-        containerView.backgroundColor = color
-    }
 
     func set(with toDo: ToDo) {
         self.contentLabel.text = toDo.content
