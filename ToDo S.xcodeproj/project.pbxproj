@@ -35,6 +35,10 @@
 		7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */; };
 		7DF3F9AA235D6D3A00E37989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A8235D6D3A00E37989 /* Main.storyboard */; };
 		7DF3F9AF235D6D3B00E37989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */; };
+		7DFD20AC2377E3E700CDD6D1 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */; };
+		7DFD20AF2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */; };
+		7DFD20B02377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */; };
+		7DFD20B22377EFC300CDD6D1 /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,11 +68,15 @@
 		7D20CFF8235D92820028AD51 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerTextField.swift; sourceTree = "<group>"; };
 		7D54B6522376AE9A00298539 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7DF3F99F235D6D3A00E37989 /* 할 일 체크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "할 일 체크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DF3F99F235D6D3A00E37989 /* 할일체크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "할일체크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF3F9A9235D6D3A00E37989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DF3F9AE235D6D3B00E37989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF3F9B0235D6D3B00E37989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
+		7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoTableViewCell.swift; sourceTree = "<group>"; };
+		7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedToDoTableViewCell.xib; sourceTree = "<group>"; };
+		7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
 		869EFC94B34FD304C52CDF27 /* Pods-Todo-S.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-S.release.xcconfig"; path = "Target Support Files/Pods-Todo-S/Pods-Todo-S.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,9 +175,13 @@
 		7D20CFFA235DAC8D0028AD51 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */,
 				7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */,
+				7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */,
 				7D1825002361A3AC009EB7BB /* ToDoTableViewCell.swift */,
 				7D1825012361A3AC009EB7BB /* ToDoTableViewCell.xib */,
+				7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */,
+				7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -187,7 +199,7 @@
 		7DF3F9A0235D6D3A00E37989 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7DF3F99F235D6D3A00E37989 /* 할 일 체크.app */,
+				7DF3F99F235D6D3A00E37989 /* 할일체크.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,7 +257,7 @@
 			);
 			name = "ToDo S";
 			productName = "Todo-S";
-			productReference = 7DF3F99F235D6D3A00E37989 /* 할 일 체크.app */;
+			productReference = 7DF3F99F235D6D3A00E37989 /* 할일체크.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -288,6 +300,7 @@
 			files = (
 				7DF3F9AF235D6D3B00E37989 /* LaunchScreen.storyboard in Resources */,
 				7DF3F9AA235D6D3A00E37989 /* Main.storyboard in Resources */,
+				7DFD20B02377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib in Resources */,
 				7D54B6532376AE9A00298539 /* Assets.xcassets in Resources */,
 				7D1825032361A3AC009EB7BB /* ToDoTableViewCell.xib in Resources */,
 			);
@@ -345,6 +358,7 @@
 				7D1824F2235F1014009EB7BB /* ToDoListViewModel.swift in Sources */,
 				7D1824FE23604F28009EB7BB /* UIView+Ex.swift in Sources */,
 				7D18250A2366C67B009EB7BB /* Scene.swift in Sources */,
+				7DFD20AF2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift in Sources */,
 				7D1825122366CA93009EB7BB /* ViewModelBindableType.swift in Sources */,
 				7D18250C2366C6C0009EB7BB /* SceneCoordinator.swift in Sources */,
 				7D20CFFC235DAD160028AD51 /* RoundCornerTextField.swift in Sources */,
@@ -357,10 +371,12 @@
 				7D1825182366D3B8009EB7BB /* UIViewController+Ex.swift in Sources */,
 				7D1825162366D0EB009EB7BB /* CompletedToDoViewController.swift in Sources */,
 				7D13D191235DE23800A07725 /* ToDoStorageType.swift in Sources */,
+				7DFD20AC2377E3E700CDD6D1 /* RoundCornerButton.swift in Sources */,
 				7D1825142366CBEA009EB7BB /* ToDoViewModel.swift in Sources */,
 				7D1825062366C5AA009EB7BB /* CoordinatorType.swift in Sources */,
 				7D20CFF9235D92820028AD51 /* ToDoListViewController.swift in Sources */,
 				7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */,
+				7DFD20B22377EFC300CDD6D1 /* DashedLineView.swift in Sources */,
 				7D1824FB23602A5B009EB7BB /* RxUITextFieldDelegateProxy.swift in Sources */,
 				7D13D193235DE6E400A07725 /* ToDo.swift in Sources */,
 				7D1824F8236025A7009EB7BB /* UITextField+Rx.swift in Sources */,
@@ -440,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -494,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -517,7 +533,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.hngfu.Todo-S";
-				PRODUCT_NAME = "할 일 체크";
+				PRODUCT_NAME = "할일체크";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,7 +552,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.hngfu.Todo-S";
-				PRODUCT_NAME = "할 일 체크";
+				PRODUCT_NAME = "할일체크";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

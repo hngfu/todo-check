@@ -34,8 +34,8 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toDoListTableView.register(UINib(nibName: ToDoTableViewCell.nibName, bundle: nil),
-                                   forCellReuseIdentifier: ToDoTableViewCell.identifier)
+        let nib = UINib(nibName: ToDoTableViewCell.nibName, bundle: nil)
+        toDoListTableView.register(nib, forCellReuseIdentifier: ToDoTableViewCell.identifier)
         inputTextField.enablesReturnKeyAutomatically = true
     }
     
@@ -65,10 +65,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [weak self] height in
                 guard let `self` = self else { return }
-                var height = height
-                if #available(iOS 11, *) {
-                    height = height - self.view.safeAreaInsets.bottom
-                }
+                let height = height - self.view.safeAreaInsets.bottom
                 UIView.animate(withDuration: 0) {
                     self.inputContainerViewBottomConstraint.constant = max(height, 0)
                     self.view.layoutIfNeeded()

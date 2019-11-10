@@ -24,6 +24,12 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
     var viewModel: CompletedToDoListViewModel!
     private var disposeBag = DisposeBag()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let nib = UINib(nibName: CompletedToDoTableViewCell.nibName, bundle: nil)
+        completedToDoListTableView.register(nib, forCellReuseIdentifier: CompletedToDoTableViewCell.identifier)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         disposeBag = DisposeBag()
         super.viewDidDisappear(animated)

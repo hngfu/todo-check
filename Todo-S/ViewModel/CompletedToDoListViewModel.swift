@@ -14,9 +14,15 @@ import Action
 class CompletedToDoListViewModel: ToDoViewModel {
     lazy var dataSource: RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> = {
         let dataSource = RxTableViewSectionedAnimatedDataSource<ToDoSectionModel> (configureCell: { dataSource, tableView, indexPath, toDo in
-            let cell = UITableViewCell()
-            cell.textLabel?.text = toDo.content
-            return cell
+           let cell = tableView.dequeueReusableCell(withIdentifier: CompletedToDoTableViewCell.identifier,
+                                                     for: indexPath)
+            guard
+                let completedToDoCell = cell as? CompletedToDoTableViewCell
+                else { return cell }
+            completedToDoCell.set(with: toDo)
+            let isEvenIndex = indexPath.row.isMultiple(of: 2)
+            completedToDoCell.setColor(isEvenIndex: isEvenIndex)
+            return completedToDoCell
         })
         dataSource.animationConfiguration = .init(insertAnimation: .left,
                                                   reloadAnimation: .automatic,

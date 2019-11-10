@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
         <!--To Do List View Controller-->
         <scene sceneID="VCE-dS-GUh">
             <objects>
-                <viewController id="8y6-vj-3Nb" customClass="ToDoListViewController" customModule="할_일_체크" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8y6-vj-3Nb" customClass="ToDoListViewController" customModule="할일체크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1pX-vH-1BI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +35,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75g-b9-gkf">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To do" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p73-gN-GVD" customClass="RoundCornerTextField" customModule="할_일_체크" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To do" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p73-gN-GVD" customClass="RoundCornerTextField" customModule="할일체크" customModuleProvider="target">
                                         <rect key="frame" x="16" y="4" width="382" height="36"/>
                                         <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -59,7 +60,11 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kh7-dN-ZsB">
                                 <rect key="frame" x="0.0" y="88" width="414" height="730"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="ToDo Background Color"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RmT-Rl-cjL" appends="YES" id="tbe-0x-Bb4"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -83,20 +88,20 @@
                     <connections>
                         <outlet property="inputContainerViewBottomConstraint" destination="EzP-RT-TPa" id="D7D-kY-oa7"/>
                         <outlet property="inputTextField" destination="p73-gN-GVD" id="HzT-UP-cE0"/>
-                        <outlet property="movableCellLongGestureRecognizer" destination="rQj-XX-aml" id="26q-XC-woY"/>
+                        <outlet property="movableCellLongGestureRecognizer" destination="RmT-Rl-cjL" id="b5U-hR-2SZ"/>
                         <outlet property="showCompletedListButton" destination="4ge-Op-ZFu" id="9mI-uR-1yK"/>
                         <outlet property="toDoListTableView" destination="Kh7-dN-ZsB" id="eNy-pP-73t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwy-89-eEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="rQj-XX-aml"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="RmT-Rl-cjL"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="66.964285714285708"/>
         </scene>
         <!--Completed To Do View Controller-->
         <scene sceneID="nDa-pv-1GK">
             <objects>
-                <viewController storyboardIdentifier="CompletedToDoListViewController" id="4ns-WH-gRl" customClass="CompletedToDoViewController" customModule="할_일_체크" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompletedToDoListViewController" id="4ns-WH-gRl" customClass="CompletedToDoViewController" customModule="할일체크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9z-q0-rPe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,5 +165,8 @@
     </scenes>
     <resources>
         <image name="completed_list" width="35" height="35"/>
+        <namedColor name="ToDo Background Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
