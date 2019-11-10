@@ -22,7 +22,7 @@ class ToDoListViewModel: ToDoViewModel {
                 else { return cell }
             toDoCell.set(with: toDo)
             toDoCell.checkButton.rx.action = self.makeCompleteAction(toDo: toDo)
-            return cell
+            return toDoCell
         })
         dataSource.animationConfiguration = .init(insertAnimation: .fade,
                                                   reloadAnimation: .automatic,
@@ -55,7 +55,7 @@ class ToDoListViewModel: ToDoViewModel {
     func makeShowCompletedListAction() -> CocoaAction {
         return CocoaAction { [weak self] in
             guard let `self` = self else { return Observable.empty() }
-            let completedToDoListViewModel = CompletedToDoListViewModel(title: "Completed",
+            let completedToDoListViewModel = CompletedToDoListViewModel(title: "완료한 일",
                                                                         coordinator: self.coordinator,
                                                                         storage: self.storage)
             let scene = Scene.completedToDoList(completedToDoListViewModel)
