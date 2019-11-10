@@ -41,16 +41,15 @@
                                     <constraint firstAttribute="bottom" secondItem="6KJ-30-V1m" secondAttribute="bottom" constant="8" id="kl4-vy-SBh"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-E2-mu4" customClass="RoundCornerButton" customModule="할일체크" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-E2-mu4">
                                 <rect key="frame" x="592" y="19.5" width="25" height="25"/>
-                                <color key="backgroundColor" name="ToDo Button Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="GbQ-IW-25Z"/>
                                     <constraint firstAttribute="height" constant="25" id="uTD-L6-cCn"/>
                                     <constraint firstAttribute="width" secondItem="MMo-E2-mu4" secondAttribute="height" id="uw7-VP-VlF"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="-7" maxX="-7" maxY="0.0"/>
+                                <color key="tintColor" name="ToDo Button Color"/>
+                                <state key="normal" image="check_button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
@@ -93,6 +92,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="check_button" width="24" height="23.5"/>
         <namedColor name="ToDo Button Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

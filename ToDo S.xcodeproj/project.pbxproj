@@ -35,7 +35,6 @@
 		7DF3F9A3235D6D3A00E37989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A2235D6D3A00E37989 /* AppDelegate.swift */; };
 		7DF3F9AA235D6D3A00E37989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9A8235D6D3A00E37989 /* Main.storyboard */; };
 		7DF3F9AF235D6D3B00E37989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */; };
-		7DFD20AC2377E3E700CDD6D1 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */; };
 		7DFD20AF2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */; };
 		7DFD20B02377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */; };
 		7DFD20B22377EFC300CDD6D1 /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */; };
@@ -73,7 +72,6 @@
 		7DF3F9A9235D6D3A00E37989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DF3F9AE235D6D3B00E37989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF3F9B0235D6D3B00E37989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
 		7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoTableViewCell.swift; sourceTree = "<group>"; };
 		7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedToDoTableViewCell.xib; sourceTree = "<group>"; };
 		7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			children = (
 				7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */,
 				7D20CFFB235DAD160028AD51 /* RoundCornerTextField.swift */,
-				7DFD20AB2377E3E700CDD6D1 /* RoundCornerButton.swift */,
 				7D1825002361A3AC009EB7BB /* ToDoTableViewCell.swift */,
 				7D1825012361A3AC009EB7BB /* ToDoTableViewCell.xib */,
 				7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */,
@@ -371,7 +368,6 @@
 				7D1825182366D3B8009EB7BB /* UIViewController+Ex.swift in Sources */,
 				7D1825162366D0EB009EB7BB /* CompletedToDoViewController.swift in Sources */,
 				7D13D191235DE23800A07725 /* ToDoStorageType.swift in Sources */,
-				7DFD20AC2377E3E700CDD6D1 /* RoundCornerButton.swift in Sources */,
 				7D1825142366CBEA009EB7BB /* ToDoViewModel.swift in Sources */,
 				7D1825062366C5AA009EB7BB /* CoordinatorType.swift in Sources */,
 				7D20CFF9235D92820028AD51 /* ToDoListViewController.swift in Sources */,

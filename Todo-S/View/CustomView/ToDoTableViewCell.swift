@@ -13,7 +13,7 @@ class ToDoTableViewCell: UITableViewCell {
     static let nibName = "ToDoTableViewCell"
     
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var checkButton: RoundCornerButton!
+    @IBOutlet weak var checkButton: UIButton!
     
     func set(with toDo: ToDo) {
         self.contentLabel.text = toDo.content
