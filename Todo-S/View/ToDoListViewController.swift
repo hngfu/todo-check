@@ -18,7 +18,10 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     static let identifierNavigation = "ToDoListNavigation"
     
     @IBOutlet weak var toDoListTableView: UITableView!
-    @IBOutlet weak var inputTextField: RoundCornerTextField!
+    @IBOutlet weak var inputButton: UIButton!
+    @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var inputTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var movableCellLongGestureRecognizer: UILongPressGestureRecognizer!
     @IBOutlet weak var showCompletedListButton: UIBarButtonItem!
@@ -32,11 +35,13 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
     
     private var oldCellCount: Int?
     
+    private let minHeightInputTextView: CGFloat = 37
+    private let maxHeightInputTextView: CGFloat = 117
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: ToDoTableViewCell.nibName, bundle: nil)
         toDoListTableView.register(nib, forCellReuseIdentifier: ToDoTableViewCell.identifier)
-        inputTextField.enablesReturnKeyAutomatically = true
     }
     
     func bindViewModel() {
@@ -45,7 +50,6 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .disposed(by: disposeBag)
 
         let toDoListObservable = viewModel.toDoList.asDriver(onErrorJustReturn: [])
-        
         toDoListObservable
             .drive(toDoListTableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
@@ -66,18 +70,32 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
             .drive(onNext: { [weak self] height in
                 guard let `self` = self else { return }
                 let height = height - self.view.safeAreaInsets.bottom
-                UIView.animate(withDuration: 0) {
-                    self.inputContainerViewBottomConstraint.constant = max(height, 0)
-                    self.view.layoutIfNeeded()
-                    self.scrollToLastCell()
-                }
+                self.inputContainerViewBottomConstraint.constant = max(height, 0)
+                self.view.layoutIfNeeded()
+                self.scrollToLastCell()
+            })
+            .disposed(by: disposeBag)
+
+        let inputButtonObservable = inputButton.rx.tap.share()
+        inputButtonObservable
+            .withLatestFrom(inputTextView.rx.text.orEmpty)
+            .bind(to: viewModel.createAction.inputs)
+            .disposed(by: disposeBag)
+        
+        inputButtonObservable
+            .subscribe(onNext: { _ in
+                self.inputTextView.text = ""
+                self.inputTextViewHeightConstraint.constant = self.minHeightInputTextView
             })
             .disposed(by: disposeBag)
         
-        inputTextField.rx.shouldReturn
-            .withLatestFrom(inputTextField.rx.text)
-            .filterNil()
-            .bind(to: viewModel.createAction.inputs)
+        inputTextView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        inputTextView.rx.text.orEmpty
+            .map { !$0.isEmpty }
+            .distinctUntilChanged()
+            .bind(to: inputButton.rx.isEnabled, placeholderLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
         movableCellLongGestureRecognizer.rx.event
@@ -141,7 +159,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         
         showCompletedListButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.inputTextField.resignFirstResponder()
+                self?.inputTextView.resignFirstResponder()
             })
             .disposed(by: disposeBag)
         
@@ -149,7 +167,7 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         
         toDoListTableView.rx.tapGesture()
             .subscribe(onNext: { [weak self] _ in
-                self?.inputTextField.resignFirstResponder()
+                self?.inputTextView.resignFirstResponder()
             })
             .disposed(by: disposeBag)
     }
@@ -167,5 +185,21 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         guard countRowZeroSection > 0 else { return }
         let lastCellIndexPath = IndexPath(row: countRowZeroSection - 1, section: 0)
         toDoListTableView.scrollToRow(at: lastCellIndexPath, at: .bottom, animated: true)
+    }
+}
+
+extension ToDoListViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let textViewHeight = self.inputTextView.contentSize.height
+        if textViewHeight < self.minHeightInputTextView {
+            inputTextViewHeightConstraint.constant = self.minHeightInputTextView
+        } else if textViewHeight > self.maxHeightInputTextView {
+            inputTextViewHeightConstraint.constant = self.maxHeightInputTextView
+        } else {
+            inputTextViewHeightConstraint.constant = textViewHeight
+        }
+        textView.layoutIfNeeded()
+        let bottomPointY = textView.contentSize.height - inputTextViewHeightConstraint.constant
+        textView.setContentOffset(.init(x: 0, y: bottomPointY), animated: false)
     }
 }
