@@ -35,12 +35,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75g-b9-gkf">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CT-nB-CzH">
-                                        <rect key="frame" x="360" y="6" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CT-nB-CzH">
+                                        <rect key="frame" x="378" y="7.5" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8CT-nB-CzH" secondAttribute="height" id="8wj-l2-zxs"/>
+                                            <constraint firstAttribute="height" constant="28" id="YND-eG-r8Q"/>
+                                        </constraints>
+                                        <state key="normal" image="pencil"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgt-EP-Obe" customClass="RoundCornerView" customModule="할일체크" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="3.5" width="336" height="37"/>
+                                        <rect key="frame" x="16" y="3.5" width="354" height="37"/>
                                         <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -49,7 +53,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBm-H8-Eyi">
-                                        <rect key="frame" x="28" y="3.5" width="312" height="37"/>
+                                        <rect key="frame" x="28" y="3.5" width="330" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="pe9-Aa-1Vw"/>
                                         </constraints>
@@ -67,13 +71,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="8CT-nB-CzH" firstAttribute="leading" secondItem="Fgt-EP-Obe" secondAttribute="trailing" constant="8" id="6zg-9Y-2vZ"/>
-                                    <constraint firstItem="kVe-yV-Ktn" firstAttribute="top" secondItem="tBm-H8-Eyi" secondAttribute="top" constant="8" id="Aeb-HS-Dqf"/>
                                     <constraint firstAttribute="bottom" secondItem="Fgt-EP-Obe" secondAttribute="bottom" constant="3.5" id="Tuu-7C-LdB"/>
                                     <constraint firstItem="Fgt-EP-Obe" firstAttribute="top" secondItem="75g-b9-gkf" secondAttribute="top" constant="3.5" id="Uaa-0F-mfe"/>
                                     <constraint firstItem="Fgt-EP-Obe" firstAttribute="leading" secondItem="75g-b9-gkf" secondAttribute="leading" constant="16" id="VTg-PE-VQH"/>
-                                    <constraint firstAttribute="bottom" secondItem="8CT-nB-CzH" secondAttribute="bottom" constant="8" id="aRS-f4-vPp"/>
+                                    <constraint firstAttribute="bottom" secondItem="8CT-nB-CzH" secondAttribute="bottom" constant="8.5" id="aRS-f4-vPp"/>
                                     <constraint firstItem="tBm-H8-Eyi" firstAttribute="top" secondItem="Fgt-EP-Obe" secondAttribute="top" id="dVY-4O-Vff"/>
                                     <constraint firstItem="tBm-H8-Eyi" firstAttribute="leading" secondItem="Fgt-EP-Obe" secondAttribute="leading" constant="12" id="gAL-BY-tzM"/>
+                                    <constraint firstItem="kVe-yV-Ktn" firstAttribute="centerY" secondItem="tBm-H8-Eyi" secondAttribute="centerY" id="gIk-wP-Ajm"/>
                                     <constraint firstItem="tBm-H8-Eyi" firstAttribute="bottom" secondItem="Fgt-EP-Obe" secondAttribute="bottom" id="kL6-qv-zqS"/>
                                     <constraint firstItem="tBm-H8-Eyi" firstAttribute="trailing" secondItem="Fgt-EP-Obe" secondAttribute="trailing" constant="-12" id="nwr-PR-5kH"/>
                                     <constraint firstItem="kVe-yV-Ktn" firstAttribute="leading" secondItem="tBm-H8-Eyi" secondAttribute="leading" constant="5" id="pQn-Ht-owE"/>
@@ -190,6 +194,7 @@
     </scenes>
     <resources>
         <image name="completed_list" width="35" height="35"/>
+        <image name="pencil" width="32.5" height="32.5"/>
         <namedColor name="ToDo Background Color">
             <color red="0.47843137254901963" green="0.51764705882352946" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

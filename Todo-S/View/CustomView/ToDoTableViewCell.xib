@@ -49,7 +49,7 @@
                                     <constraint firstAttribute="width" secondItem="MMo-E2-mu4" secondAttribute="height" id="uw7-VP-VlF"/>
                                 </constraints>
                                 <color key="tintColor" name="ToDo Button Color"/>
-                                <state key="normal" image="check_button"/>
+                                <state key="normal" image="check_box"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
@@ -92,7 +92,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="check_button" width="24" height="23.5"/>
+        <image name="check_box" width="24" height="23.5"/>
         <namedColor name="ToDo Button Color">
             <color red="0.23921568627450981" green="0.31372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
