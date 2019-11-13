@@ -107,7 +107,10 @@
                         <viewLayoutGuide key="safeArea" id="OTf-sj-69N"/>
                     </view>
                     <navigationItem key="navigationItem" id="PrX-Sm-xPE">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="completed_list" id="4ge-Op-ZFu">
+                        <barButtonItem key="leftBarButtonItem" image="license" id="B0s-4d-GiC">
+                            <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="checked_list" id="4ge-Op-ZFu">
                             <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -193,7 +196,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="completed_list" width="35" height="35"/>
+        <image name="checked_list" width="28" height="28"/>
+        <image name="license" width="28" height="22"/>
         <image name="pencil" width="32.5" height="32.5"/>
         <namedColor name="ToDo Background Color">
             <color red="0.47843137254901963" green="0.51764705882352946" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
