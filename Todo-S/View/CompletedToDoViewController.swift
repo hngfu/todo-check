@@ -50,8 +50,8 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
             .map { sectionModels -> Bool in
                 let hasCell = sectionModels[0].items.count > 0
                 return hasCell
-        }
-        .distinctUntilChanged()
+            }
+            .distinctUntilChanged()
         
         hasCellObservable
             .drive(shareButton.rx.isEnabled)

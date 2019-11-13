@@ -12,7 +12,6 @@ class CompletedToDoTableViewCell: UITableViewCell {
     static let identifier = "completedToDoTableViewCell"
     static let nibName = "CompletedToDoTableViewCell"
 
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
 
     func set(with toDo: ToDo) {

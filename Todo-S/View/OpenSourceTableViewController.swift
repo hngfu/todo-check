@@ -69,13 +69,16 @@ class OpenSourceTableViewController: UITableViewController {
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
-        """),
+        """
+        ),
     ]
 
     @IBAction func close(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+}
+
+extension OpenSourceTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -90,7 +93,6 @@ class OpenSourceTableViewController: UITableViewController {
             return 0
         }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {

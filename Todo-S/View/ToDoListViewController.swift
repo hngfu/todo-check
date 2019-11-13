@@ -157,19 +157,15 @@ class ToDoListViewController: UIViewController, ViewModelBindableType {
         
         showCompletedListButton.rx.action = viewModel.makeShowCompletedListAction()
         
-        showCompletedListButton.rx.tap
+        let showListButton = showCompletedListButton.rx.tap.map { _ in return () }
+        let tapGestureObservable = toDoListTableView.rx.tapGesture().map { _ in return () }
+        Observable.merge(showListButton, tapGestureObservable)
             .subscribe(onNext: { [weak self] in
                 self?.inputTextView.resignFirstResponder()
             })
             .disposed(by: disposeBag)
         
         toDoListTableView.setContentOffset(.zero, animated: false)
-        
-        toDoListTableView.rx.tapGesture()
-            .subscribe(onNext: { [weak self] _ in
-                self?.inputTextView.resignFirstResponder()
-            })
-            .disposed(by: disposeBag)
     }
     
     private func hoveringSnapShotImageView(of view: UIView) -> UIImageView {
