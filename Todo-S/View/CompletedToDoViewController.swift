@@ -63,9 +63,9 @@ class CompletedToDoViewController: UIViewController, ViewModelBindableType {
         
         deleteButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                let alert = UIAlertController(title: nil, message: "완료된 To Do들이 모두 삭제됩니다.", preferredStyle: .actionSheet)
-                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-                let deleteAction = UIAlertAction(title: "모두 삭제", style: .destructive, handler: { _ in self?.viewModel.deleteAllCompletedToDo() })
+                let alert = UIAlertController(title: nil, message: "완료된 To Do들이 모두 삭제됩니다.".localized, preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "취소".localized, style: .cancel)
+                let deleteAction = UIAlertAction(title: "모두 삭제".localized, style: .destructive, handler: { _ in self?.viewModel.deleteAllCompletedToDo() })
                 alert.addAction(cancelAction)
                 alert.addAction(deleteAction)
                 self?.present(alert, animated: true, completion: nil)
