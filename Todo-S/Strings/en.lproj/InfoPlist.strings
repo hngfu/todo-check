@@ -7,3 +7,5 @@
 */
 
 CFBundleDisplayName = "ToDo Check";
+
+NSPhotoLibraryAddUsageDescription = "If you allow, you can save the completed list on the photo app.";

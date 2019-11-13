@@ -9,3 +9,9 @@
 "할 일" = "ToDo";
 
 "완료한 일" = "Completed";
+
+"완료된 To Do들이 모두 삭제됩니다." = "All completed ToDo will be deleted.";
+
+"취소" = "cancel";
+
+"모두 삭제" = "Delete All";

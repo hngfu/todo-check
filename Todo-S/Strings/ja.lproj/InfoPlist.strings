@@ -6,4 +6,6 @@
   Copyright © 2019 Hngfu. All rights reserved.
 */
 
-CFBundleDisplayName = "トゥードゥーリスト";
+CFBundleDisplayName = "やることリスト";
+
+NSPhotoLibraryAddUsageDescription = "許可すれば完了したリストを写真アプリに保存することが可能になります。";
