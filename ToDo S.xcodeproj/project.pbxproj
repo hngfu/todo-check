@@ -36,6 +36,11 @@
 		7DFD20AF2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */; };
 		7DFD20B02377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */; };
 		7DFD20B22377EFC300CDD6D1 /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */; };
+		7DFF944D237BCFEB005670F6 /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF944C237BCFEB005670F6 /* OpenSourceTableViewController.swift */; };
+		7DFF944F237BD06A005670F6 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF944E237BD069005670F6 /* License.swift */; };
+		7DFF9451237BD076005670F6 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF9450237BD076005670F6 /* Library.swift */; };
+		7DFF9453237BD1DB005670F6 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF9452237BD1DB005670F6 /* LibraryTableViewCell.swift */; };
+		7DFF9455237BD1E3005670F6 /* LicenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF9454237BD1E3005670F6 /* LicenseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,11 @@
 		7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedToDoTableViewCell.swift; sourceTree = "<group>"; };
 		7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedToDoTableViewCell.xib; sourceTree = "<group>"; };
 		7DFD20B12377EFC300CDD6D1 /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
+		7DFF944C237BCFEB005670F6 /* OpenSourceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewController.swift; sourceTree = "<group>"; };
+		7DFF944E237BD069005670F6 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		7DFF9450237BD076005670F6 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		7DFF9452237BD1DB005670F6 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		7DFF9454237BD1E3005670F6 /* LicenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTableViewCell.swift; sourceTree = "<group>"; };
 		869EFC94B34FD304C52CDF27 /* Pods-Todo-S.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-S.release.xcconfig"; path = "Target Support Files/Pods-Todo-S/Pods-Todo-S.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +104,7 @@
 				7DF3F9AD235D6D3B00E37989 /* LaunchScreen.storyboard */,
 				7D20CFF8235D92820028AD51 /* ToDoListViewController.swift */,
 				7D1825152366D0EB009EB7BB /* CompletedToDoViewController.swift */,
+				7DFF944C237BCFEB005670F6 /* OpenSourceTableViewController.swift */,
 				7D1825112366CA93009EB7BB /* ViewModelBindableType.swift */,
 			);
 			path = View;
@@ -114,6 +125,8 @@
 			children = (
 				7D13D192235DE6E400A07725 /* ToDo.swift */,
 				7D1824EE235EE7E0009EB7BB /* ToDoList.swift */,
+				7DFF944E237BD069005670F6 /* License.swift */,
+				7DFF9450237BD076005670F6 /* Library.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +178,8 @@
 				7D1825012361A3AC009EB7BB /* ToDoTableViewCell.xib */,
 				7DFD20AD2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift */,
 				7DFD20AE2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.xib */,
+				7DFF9452237BD1DB005670F6 /* LibraryTableViewCell.swift */,
+				7DFF9454237BD1E3005670F6 /* LicenseTableViewCell.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -339,13 +354,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1824F2235F1014009EB7BB /* ToDoListViewModel.swift in Sources */,
+				7DFF9451237BD076005670F6 /* Library.swift in Sources */,
 				7D1824FE23604F28009EB7BB /* UIView+Ex.swift in Sources */,
+				7DFF944F237BD06A005670F6 /* License.swift in Sources */,
 				7D18250A2366C67B009EB7BB /* Scene.swift in Sources */,
+				7DFF9453237BD1DB005670F6 /* LibraryTableViewCell.swift in Sources */,
 				7DFD20AF2377E9FE00CDD6D1 /* CompletedToDoTableViewCell.swift in Sources */,
 				7D1825122366CA93009EB7BB /* ViewModelBindableType.swift in Sources */,
 				7D18250C2366C6C0009EB7BB /* SceneCoordinator.swift in Sources */,
 				7D1825022361A3AC009EB7BB /* ToDoTableViewCell.swift in Sources */,
 				7D1825102366C76B009EB7BB /* CompletedToDoListViewModel.swift in Sources */,
+				7DFF944D237BCFEB005670F6 /* OpenSourceTableViewController.swift in Sources */,
 				7D1825082366C622009EB7BB /* TransitionStyle.swift in Sources */,
 				7D18251A2366D4EA009EB7BB /* SceneError.swift in Sources */,
 				7D18251D2366D534009EB7BB /* TransitionError.swift in Sources */,
@@ -361,6 +380,7 @@
 				7DFD20B22377EFC300CDD6D1 /* DashedLineView.swift in Sources */,
 				7D13D193235DE6E400A07725 /* ToDo.swift in Sources */,
 				7D13D195235DE9C100A07725 /* RealmStorage.swift in Sources */,
+				7DFF9455237BD1E3005670F6 /* LicenseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
