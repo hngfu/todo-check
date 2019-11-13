@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storage = RealmStorage()
         let coordinator = SceneCoordinator(window: window!)
-        let viewModel = ToDoListViewModel(title: "할 일",
+        let viewModel = ToDoListViewModel(title: "할 일".localized,
                                           coordinator: coordinator,
                                           storage: storage!)
         let scene = Scene.toDoList(viewModel)

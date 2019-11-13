@@ -55,7 +55,7 @@ class ToDoListViewModel: ToDoViewModel {
     func makeShowCompletedListAction() -> CocoaAction {
         return CocoaAction { [weak self] in
             guard let `self` = self else { return Observable.empty() }
-            let completedToDoListViewModel = CompletedToDoListViewModel(title: "완료한 일",
+            let completedToDoListViewModel = CompletedToDoListViewModel(title: "완료한 일".localized,
                                                                         coordinator: self.coordinator,
                                                                         storage: self.storage)
             let scene = Scene.completedToDoList(completedToDoListViewModel)

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ToDo S
+
+  Created by 조재흥 on 2019/11/13.
+  Copyright © 2019 Hngfu. All rights reserved.
+*/
+
+"할 일" = "ToDo";
+
+"완료한 일" = "Completed";

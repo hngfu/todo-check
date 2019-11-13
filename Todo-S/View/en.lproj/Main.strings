@@ -1,0 +1,10 @@
+
+/* Class = "UINavigationItem"; title = "오픈소스 라이선스"; ObjectID = "FRn-f0-rfn"; */
+"FRn-f0-rfn.title" = "Open-source License";
+
+/* Class = "UIBarButtonItem"; title = "닫기"; ObjectID = "Pfb-kx-No1"; */
+"Pfb-kx-No1.title" = "Close";
+
+/* Class = "UILabel"; text = "오늘 하루 행복하기"; ObjectID = "kVe-yV-Ktn"; */
+"kVe-yV-Ktn.text" = "Let's be happy today.";
+
