@@ -1,14 +1,18 @@
 ## 할일체크 ToDo Check
 
+<a href="https://apps.apple.com/app/id1487827079">
+<img src = "https://user-images.githubusercontent.com/38850628/68924122-5ab43c80-07c3-11ea-857a-1b53eeb16cab.png" width = 200/>
+</a>
+
 ### 앱 설명
 
 #### 스마트한 당신이 더 스마트해지기 위한 방법, '할일체크'
 
 <img src = "https://user-images.githubusercontent.com/38850628/68876123-4fbbc680-0747-11ea-8164-65d4cdc8fd83.gif" width = 300/>
 
-1. 할 일 추가 기능
-2. 완료한 일 삭제 기능
-3. 완료한 일 저장 기능
+1. 할 일 추가
+2. 완료한 일 삭제
+3. 완료한 일 저장
 
 <img src = "https://user-images.githubusercontent.com/38850628/68876791-5bf45380-0748-11ea-8843-53e3cd04735f.JPG" width = 300/>
 
